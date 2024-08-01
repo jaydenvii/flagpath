@@ -1,0 +1,239 @@
+{
+  "countries": [
+    {
+      "id": "AF",
+      "name": "Afghanistan",
+      "flagUrl": "",
+      "borders": ["IR", "PK", "TM", "UZ", "TJ", "CN"]
+    },
+    {
+      "id": "AL",
+      "name": "Albania",
+      "flagUrl": "",
+      "borders": ["ME", "GR", "MK", "XK"]
+    },
+    {
+      "id": "DZ",
+      "name": "Algeria",
+      "flagUrl": "",
+      "borders": ["TN", "LY", "NE", "EH", "MR", "ML"]
+    },
+    { "id": "AD", "name": "Andorra", "flagUrl": "", "borders": ["FR", "ES"] },
+    {
+      "id": "AO",
+      "name": "Angola",
+      "flagUrl": "",
+      "borders": ["CD", "CG", "NA", "ZM"]
+    },
+    {
+      "id": "AR",
+      "name": "Argentina",
+      "flagUrl": "",
+      "borders": ["BO", "BR", "CL", "PY", "UY"]
+    },
+    {
+      "id": "AM",
+      "name": "Armenia",
+      "flagUrl": "",
+      "borders": ["AZ", "GE", "IR", "TR"]
+    },
+    { "id": "AU", "name": "Australia", "flagUrl": "", "borders": [] },
+    {
+      "id": "AT",
+      "name": "Austria",
+      "flagUrl": "",
+      "borders": ["CZ", "DE", "HU", "IT", "LI", "SK", "SI", "CH"]
+    },
+    {
+      "id": "AZ",
+      "name": "Azerbaijan",
+      "flagUrl": "",
+      "borders": ["AM", "GE", "IR", "RU", "TR"]
+    },
+    { "id": "BS", "name": "Bahamas", "flagUrl": "", "borders": [] },
+    { "id": "BH", "name": "Bahrain", "flagUrl": "", "borders": [] },
+    {
+      "id": "BD",
+      "name": "Bangladesh",
+      "flagUrl": "",
+      "borders": ["MM", "IN"]
+    },
+    { "id": "BB", "name": "Barbados", "flagUrl": "", "borders": [] },
+    {
+      "id": "BY",
+      "name": "Belarus",
+      "flagUrl": "",
+      "borders": ["LV", "LT", "PL", "RU", "UA"]
+    },
+    {
+      "id": "BE",
+      "name": "Belgium",
+      "flagUrl": "",
+      "borders": ["FR", "DE", "LU", "NL"]
+    },
+    { "id": "BZ", "name": "Belize", "flagUrl": "", "borders": ["GT", "MX"] },
+    {
+      "id": "BJ",
+      "name": "Benin",
+      "flagUrl": "",
+      "borders": ["BF", "NE", "NG", "TG"]
+    },
+    { "id": "BT", "name": "Bhutan", "flagUrl": "", "borders": ["CN", "IN"] },
+    {
+      "id": "BO",
+      "name": "Bolivia",
+      "flagUrl": "",
+      "borders": ["AR", "BR", "CL", "PY", "PE"]
+    },
+    {
+      "id": "BA",
+      "name": "Bosnia and Herzegovina",
+      "flagUrl": "",
+      "borders": ["HR", "ME", "RS"]
+    },
+    {
+      "id": "BW",
+      "name": "Botswana",
+      "flagUrl": "",
+      "borders": ["NA", "ZA", "ZM", "ZW"]
+    },
+    {
+      "id": "BR",
+      "name": "Brazil",
+      "flagUrl": "",
+      "borders": ["AR", "BO", "CO", "GY", "PY", "PE", "SR", "UY", "VE", "GF"]
+    },
+    {
+      "id": "BN",
+      "name": "Brunei Darussalam",
+      "flagUrl": "",
+      "borders": ["MY"]
+    },
+    {
+      "id": "BG",
+      "name": "Bulgaria",
+      "flagUrl": "",
+      "borders": ["GR", "MK", "RO", "RS", "TR"]
+    },
+    {
+      "id": "BF",
+      "name": "Burkina Faso",
+      "flagUrl": "",
+      "borders": ["BJ", "CI", "GH", "ML", "NE", "TG"]
+    },
+    {
+      "id": "BI",
+      "name": "Burundi",
+      "flagUrl": "",
+      "borders": ["CD", "RW", "TZ"]
+    },
+    { "id": "CV", "name": "Cabo Verde", "flagUrl": "", "borders": [] },
+    {
+      "id": "KH",
+      "name": "Cambodia",
+      "flagUrl": "",
+      "borders": ["LA", "TH", "VN"]
+    },
+    {
+      "id": "CM",
+      "name": "Cameroon",
+      "flagUrl": "",
+      "borders": ["CF", "TD", "CG", "GA", "GQ", "NG"]
+    },
+    { "id": "CA", "name": "Canada", "flagUrl": "", "borders": ["US"] },
+    {
+      "id": "CF",
+      "name": "Central African Republic",
+      "flagUrl": "",
+      "borders": ["CM", "TD", "CD", "CG", "SS", "SD"]
+    },
+    {
+      "id": "TD",
+      "name": "Chad",
+      "flagUrl": "",
+      "borders": ["LY", "NE", "NG", "SD", "CM", "CF"]
+    },
+    {
+      "id": "CL",
+      "name": "Chile",
+      "flagUrl": "",
+      "borders": ["AR", "BO", "PE"]
+    },
+    {
+      "id": "CN",
+      "name": "China",
+      "flagUrl": "",
+      "borders": [
+        "AF",
+        "BT",
+        "MM",
+        "HK",
+        "IN",
+        "KZ",
+        "KP",
+        "KG",
+        "LA",
+        "MO",
+        "MN",
+        "NP",
+        "PK",
+        "RU",
+        "TJ",
+        "VN"
+      ]
+    },
+    {
+      "id": "CO",
+      "name": "Colombia",
+      "flagUrl": "",
+      "borders": ["BR", "EC", "PA", "PE", "VE"]
+    },
+    { "id": "KM", "name": "Comoros", "flagUrl": "", "borders": [] },
+    {
+      "id": "CG",
+      "name": "Congo",
+      "flagUrl": "",
+      "borders": ["AO", "CM", "CF", "CD", "GA"]
+    },
+    {
+      "id": "CD",
+      "name": "Congo, Democratic Republic of the",
+      "flagUrl": "",
+      "borders": ["AO", "BI", "CF", "CG", "RW", "SS", "TZ", "UG", "ZM"]
+    },
+    {
+      "id": "CR",
+      "name": "Costa Rica",
+      "flagUrl": "",
+      "borders": ["NI", "PA"]
+    },
+    {
+      "id": "HR",
+      "name": "Croatia",
+      "flagUrl": "",
+      "borders": ["BA", "HU", "ME", "RS", "SI"]
+    },
+    { "id": "CU", "name": "Cuba", "flagUrl": "", "borders": [] },
+    { "id": "CY", "name": "Cyprus", "flagUrl": "", "borders": [] },
+    {
+      "id": "CZ",
+      "name": "Czechia",
+      "flagUrl": "",
+      "borders": ["AT", "DE", "PL", "SK"]
+    },
+    { "id": "DK", "name": "Denmark", "flagUrl": "", "borders": ["DE"] },
+    {
+      "id": "DJ",
+      "name": "Djibouti",
+      "flagUrl": "",
+      "borders": ["ER", "ET", "SO"]
+    },
+    { "id": "DM", "name": "Dominica", "flagUrl": "", "borders": [] },
+    {
+      "id": "DO",
+      "name": "Dominican Republic",
+      "flagUrl": "",
+      "borders": ["HT"]
+    }
+  ]
+}
