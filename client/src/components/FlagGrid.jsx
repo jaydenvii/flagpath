@@ -24,6 +24,7 @@ const FlagGrid = () => {
   // Load all countries' data
   useEffect(() => {
     setAllCountries(countryData);
+    setLoading(false);
   }, []);
 
   // Handles game progression by clicking on flags
@@ -103,25 +104,36 @@ const FlagGrid = () => {
   return (
     <div className="flex justify-center">
       <div className="w-[900px] h-[600px] overflow-hidden border-b-2 border-r-2">
-        <div className="grid grid-cols-6 grid-rows-6 w-full h-full">
-          {gridCountries.map((rowArray, rowIndex) =>
-            rowArray.map((id, colIndex) => (
-              <div
-                key={id}
-                className={`w-full h-full border-t-2 border-l-2 ${
-                  clickedFlagColors[id] === "green"
-                    ? "bg-green-300"
-                    : clickedFlagColors[id] === "red"
-                    ? "bg-red-300"
-                    : "bg-blue-300"
-                }`}
-                onClick={() => flagClick(rowIndex, colIndex)}
-              >
-                {allCountries[id]?.name || "Unknown Country"}
-              </div>
-            ))
-          )}
-        </div>
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <div className="grid grid-cols-6 grid-rows-6 w-full h-full">
+            {gridCountries.map((rowArray, rowIndex) =>
+              rowArray.map((id, colIndex) => (
+                <div
+                  key={id}
+                  className={`w-full h-full border-t-[3px] border-l-[3px] ${
+                    clickedFlagColors[id] === "green"
+                      ? "bg-green-300"
+                      : clickedFlagColors[id] === "red"
+                      ? "bg-red-300"
+                      : "bg-blue-300"
+                  }`}
+                  onClick={() => flagClick(rowIndex, colIndex)}
+                >
+                  {/* {allCountries[id]?.name || "Unknown Country"} */}
+                  <div className="flex justify-center items-center w-full h-full">
+                    <img
+                      src={allCountries[id].flagUrl}
+                      alt=""
+                      className="max-w-full max-h-full"
+                    />
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

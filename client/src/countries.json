@@ -2,145 +2,145 @@
   "AFG": {
     "id": "AFG",
     "name": "Afghanistan",
-    "flagUrl": "",
+    "flagUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_the_Taliban.svg/320px-Flag_of_the_Taliban.svg.png",
     "borders": ["IRN", "PAK", "TKM", "UZB", "TJK", "CHN"]
   },
   "ALB": {
     "id": "ALB",
     "name": "Albania",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/al.png",
     "borders": ["MNE", "GRC", "MKD", "UNK"]
   },
   "DZA": {
     "id": "DZA",
     "name": "Algeria",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/dz.png",
     "borders": ["TUN", "LBY", "NER", "ESH", "MRT", "MLI", "MAR"]
   },
   "AND": {
     "id": "AND",
     "name": "Andorra",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ad.png",
     "borders": ["FRA", "ESP"]
   },
   "AGO": {
     "id": "AGO",
     "name": "Angola",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ao.png",
     "borders": ["COG", "COD", "ZMB", "NAM"]
   },
   "ATG": {
     "id": "ATG",
     "name": "Antigua and Barbuda",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ag.png",
     "borders": []
   },
   "ARG": {
     "id": "ARG",
     "name": "Argentina",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ar.png",
     "borders": ["BOL", "BRA", "CHL", "PRY", "URY"]
   },
   "ARM": {
     "id": "ARM",
     "name": "Armenia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/am.png",
     "borders": ["AZE", "GEO", "IRN", "TUR"]
   },
   "AUS": {
     "id": "AUS",
     "name": "Australia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/au.png",
     "borders": []
   },
   "AUT": {
     "id": "AUT",
     "name": "Austria",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/at.png",
     "borders": ["CZE", "DEU", "HUN", "ITA", "LIE", "SVK", "SVN", "CHE"]
   },
   "AZE": {
     "id": "AZE",
     "name": "Azerbaijan",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/az.png",
     "borders": ["ARM", "GEO", "IRN", "RUS", "TUR"]
   },
   "BHS": {
     "id": "BHS",
     "name": "Bahamas",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/bs.png",
     "borders": []
   },
   "BHR": {
     "id": "BHR",
     "name": "Bahrain",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/bh.png",
     "borders": []
   },
   "BGD": {
     "id": "BGD",
     "name": "Bangladesh",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/bd.png",
     "borders": ["MMR", "IND"]
   },
   "BRB": {
     "id": "BRB",
     "name": "Barbados",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/bb.png",
     "borders": []
   },
   "BLR": {
     "id": "BLR",
     "name": "Belarus",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/by.png",
     "borders": ["LVA", "LTU", "POL", "RUS", "UKR"]
   },
   "BEL": {
     "id": "BEL",
     "name": "Belgium",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/be.png",
     "borders": ["FRA", "DEU", "LUX", "NLD"]
   },
   "BLZ": {
     "id": "BLZ",
     "name": "Belize",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/bz.png",
     "borders": ["GTM", "MEX"]
   },
   "BEN": {
     "id": "BEN",
     "name": "Benin",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/bj.png",
     "borders": ["BFA", "NER", "NGA", "TGO"]
   },
   "BTN": {
     "id": "BTN",
     "name": "Bhutan",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/bt.png",
     "borders": ["CHN", "IND"]
   },
   "BOL": {
     "id": "BOL",
     "name": "Bolivia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/bo.png",
     "borders": ["ARG", "BRA", "CHL", "PRY", "PER"]
   },
   "BIH": {
     "id": "BIH",
     "name": "Bosnia and Herzegovina",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ba.png",
     "borders": ["HRV", "MNE", "SRB"]
   },
   "BWA": {
     "id": "BWA",
     "name": "Botswana",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/bw.png",
     "borders": ["NAM", "ZAF", "ZMB", "ZWE"]
   },
   "BRA": {
     "id": "BRA",
     "name": "Brazil",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/br.png",
     "borders": [
       "ARG",
       "BOL",
@@ -157,73 +157,73 @@
   "BRN": {
     "id": "BRN",
     "name": "Brunei",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/bn.png",
     "borders": ["MYS"]
   },
   "BGR": {
     "id": "BGR",
     "name": "Bulgaria",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/bg.png",
     "borders": ["GRC", "MKD", "ROU", "SRB", "TUR"]
   },
   "BFA": {
     "id": "BFA",
     "name": "Burkina Faso",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/bf.png",
     "borders": ["BEN", "CIV", "GHA", "MLI", "NER", "TGO"]
   },
   "BDI": {
     "id": "BDI",
     "name": "Burundi",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/bi.png",
     "borders": ["COD", "RWA", "TZA"]
   },
   "KHM": {
     "id": "KHM",
     "name": "Cambodia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/kh.png",
     "borders": ["LAO", "THA", "VNM"]
   },
   "CMR": {
     "id": "CMR",
     "name": "Cameroon",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/cm.png",
     "borders": ["CAF", "TCD", "COG", "GNQ", "GAB", "NGA"]
   },
   "CAN": {
     "id": "CAN",
     "name": "Canada",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ca.png",
     "borders": ["USA"]
   },
   "CPV": {
     "id": "CPV",
     "name": "Cape Verde",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/cv.png",
     "borders": []
   },
   "CAF": {
     "id": "CAF",
     "name": "Central African Republic",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/cf.png",
     "borders": ["CMR", "TCD", "COD", "COG", "SSD", "SDN"]
   },
   "TCD": {
     "id": "TCD",
     "name": "Chad",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/td.png",
     "borders": ["CMR", "CAF", "LBY", "NER", "NGA", "SDN"]
   },
   "CHL": {
     "id": "CHL",
     "name": "Chile",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/cl.png",
     "borders": ["ARG", "BOL", "PER"]
   },
   "CHN": {
     "id": "CHN",
     "name": "China",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/cn.png",
     "borders": [
       "AFG",
       "BTN",
@@ -246,637 +246,637 @@
   "COL": {
     "id": "COL",
     "name": "Colombia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/co.png",
     "borders": ["BRA", "ECU", "PAN", "PER", "VEN"]
   },
   "COM": {
     "id": "COM",
     "name": "Comoros",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/km.png",
     "borders": []
   },
   "CRI": {
     "id": "CRI",
     "name": "Costa Rica",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/cr.png",
     "borders": ["NIC", "PAN"]
   },
   "HRV": {
     "id": "HRV",
     "name": "Croatia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/hr.png",
     "borders": ["BIH", "HUN", "MNE", "SRB", "SVN"]
   },
   "CUB": {
     "id": "CUB",
     "name": "Cuba",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/cu.png",
     "borders": []
   },
   "CYP": {
     "id": "CYP",
     "name": "Cyprus",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/cy.png",
     "borders": []
   },
   "CZE": {
     "id": "CZE",
     "name": "Czechia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/cz.png",
     "borders": ["AUT", "DEU", "POL", "SVK"]
   },
   "COD": {
     "id": "COD",
     "name": "DR Congo",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/cd.png",
     "borders": ["AGO", "BDI", "CAF", "COG", "RWA", "SSD", "TZA", "UGA", "ZMB"]
   },
   "DNK": {
     "id": "DNK",
     "name": "Denmark",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/dk.png",
     "borders": ["DEU"]
   },
   "DJI": {
     "id": "DJI",
     "name": "Djibouti",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/dj.png",
     "borders": ["ERI", "ETH", "SOM"]
   },
   "DMA": {
     "id": "DMA",
     "name": "Dominica",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/dm.png",
     "borders": []
   },
   "DOM": {
     "id": "DOM",
     "name": "Dominican Republic",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/do.png",
     "borders": ["HTI"]
   },
   "ECU": {
     "id": "ECU",
     "name": "Ecuador",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ec.png",
     "borders": ["COL", "PER"]
   },
   "EGY": {
     "id": "EGY",
     "name": "Egypt",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/eg.png",
     "borders": ["ISR", "LBY", "PSE", "SDN"]
   },
   "SLV": {
     "id": "SLV",
     "name": "El Salvador",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/sv.png",
     "borders": ["GTM", "HND"]
   },
   "GNQ": {
     "id": "GNQ",
     "name": "Equatorial Guinea",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/gq.png",
     "borders": ["CMR", "GAB"]
   },
   "ERI": {
     "id": "ERI",
     "name": "Eritrea",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/er.png",
     "borders": ["DJI", "ETH", "SDN"]
   },
   "EST": {
     "id": "EST",
     "name": "Estonia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ee.png",
     "borders": ["LVA", "RUS"]
   },
   "SWZ": {
     "id": "SWZ",
     "name": "Eswatini",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/sz.png",
     "borders": ["MOZ", "ZAF"]
   },
   "ETH": {
     "id": "ETH",
     "name": "Ethiopia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/et.png",
     "borders": ["DJI", "ERI", "KEN", "SOM", "SSD", "SDN"]
   },
   "FJI": {
     "id": "FJI",
     "name": "Fiji",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/fj.png",
     "borders": []
   },
   "FIN": {
     "id": "FIN",
     "name": "Finland",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/fi.png",
     "borders": ["NOR", "SWE", "RUS"]
   },
   "FRA": {
     "id": "FRA",
     "name": "France",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/fr.png",
     "borders": ["AND", "BEL", "DEU", "ITA", "LUX", "MCO", "ESP", "CHE"]
   },
   "GAB": {
     "id": "GAB",
     "name": "Gabon",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ga.png",
     "borders": ["CMR", "COG", "GNQ"]
   },
   "GMB": {
     "id": "GMB",
     "name": "Gambia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/gm.png",
     "borders": ["SEN"]
   },
   "GEO": {
     "id": "GEO",
     "name": "Georgia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ge.png",
     "borders": ["ARM", "AZE", "RUS", "TUR"]
   },
   "DEU": {
     "id": "DEU",
     "name": "Germany",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/de.png",
     "borders": ["AUT", "BEL", "CZE", "DNK", "FRA", "LUX", "NLD", "POL", "CHE"]
   },
   "GHA": {
     "id": "GHA",
     "name": "Ghana",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/gh.png",
     "borders": ["BFA", "CIV", "TGO"]
   },
   "GRC": {
     "id": "GRC",
     "name": "Greece",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/gr.png",
     "borders": ["ALB", "BGR", "TUR", "MKD"]
   },
   "GRD": {
     "id": "GRD",
     "name": "Grenada",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/gd.png",
     "borders": []
   },
   "GTM": {
     "id": "GTM",
     "name": "Guatemala",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/gt.png",
     "borders": ["BLZ", "SLV", "HND", "MEX"]
   },
   "GIN": {
     "id": "GIN",
     "name": "Guinea",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/gn.png",
     "borders": ["CIV", "GNB", "LBR", "MLI", "SEN", "SLE"]
   },
   "GNB": {
     "id": "GNB",
     "name": "Guinea-Bissau",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/gw.png",
     "borders": ["GIN", "SEN"]
   },
   "GUY": {
     "id": "GUY",
     "name": "Guyana",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/gy.png",
     "borders": ["BRA", "SUR", "VEN"]
   },
   "HTI": {
     "id": "HTI",
     "name": "Haiti",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ht.png",
     "borders": ["DOM"]
   },
   "HND": {
     "id": "HND",
     "name": "Honduras",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/hn.png",
     "borders": ["GTM", "SLV", "NIC"]
   },
   "HUN": {
     "id": "HUN",
     "name": "Hungary",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/hu.png",
     "borders": ["AUT", "HRV", "ROU", "SRB", "SVK", "SVN", "UKR"]
   },
   "ISL": {
     "id": "ISL",
     "name": "Iceland",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/is.png",
     "borders": []
   },
   "IND": {
     "id": "IND",
     "name": "India",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/in.png",
     "borders": ["BGD", "BTN", "MMR", "CHN", "NPL", "PAK"]
   },
   "IDN": {
     "id": "IDN",
     "name": "Indonesia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/id.png",
     "borders": ["TLS", "MYS", "PNG"]
   },
   "IRN": {
     "id": "IRN",
     "name": "Iran",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ir.png",
     "borders": ["AFG", "ARM", "AZE", "IRQ", "PAK", "TUR", "TKM"]
   },
   "IRQ": {
     "id": "IRQ",
     "name": "Iraq",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/iq.png",
     "borders": ["IRN", "JOR", "KWT", "SAU", "SYR", "TUR"]
   },
   "IRL": {
     "id": "IRL",
     "name": "Ireland",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ie.png",
     "borders": ["GBR"]
   },
   "ISR": {
     "id": "ISR",
     "name": "Israel",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/il.png",
     "borders": ["EGY", "JOR", "LBN", "PSE", "SYR"]
   },
   "ITA": {
     "id": "ITA",
     "name": "Italy",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/it.png",
     "borders": ["AUT", "FRA", "SMR", "SVN", "CHE", "VAT"]
   },
   "CIV": {
     "id": "CIV",
     "name": "Ivory Coast",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ci.png",
     "borders": ["BFA", "GHA", "GIN", "LBR", "MLI"]
   },
   "JAM": {
     "id": "JAM",
     "name": "Jamaica",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/jm.png",
     "borders": []
   },
   "JPN": {
     "id": "JPN",
     "name": "Japan",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/jp.png",
     "borders": []
   },
   "JOR": {
     "id": "JOR",
     "name": "Jordan",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/jo.png",
     "borders": ["IRQ", "ISR", "PSE", "SAU", "SYR"]
   },
   "KAZ": {
     "id": "KAZ",
     "name": "Kazakhstan",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/kz.png",
     "borders": ["CHN", "KGZ", "RUS", "TKM", "UZB"]
   },
   "KEN": {
     "id": "KEN",
     "name": "Kenya",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ke.png",
     "borders": ["ETH", "SOM", "SSD", "TZA", "UGA"]
   },
   "KIR": {
     "id": "KIR",
     "name": "Kiribati",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ki.png",
     "borders": []
   },
   "KWT": {
     "id": "KWT",
     "name": "Kuwait",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/kw.png",
     "borders": ["IRQ", "SAU"]
   },
   "KGZ": {
     "id": "KGZ",
     "name": "Kyrgyzstan",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/kg.png",
     "borders": ["CHN", "KAZ", "TJK", "UZB"]
   },
   "LAO": {
     "id": "LAO",
     "name": "Laos",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/la.png",
     "borders": ["MMR", "KHM", "CHN", "THA", "VNM"]
   },
   "LVA": {
     "id": "LVA",
     "name": "Latvia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/lv.png",
     "borders": ["BLR", "EST", "LTU", "RUS"]
   },
   "LBN": {
     "id": "LBN",
     "name": "Lebanon",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/lb.png",
     "borders": ["ISR", "SYR"]
   },
   "LSO": {
     "id": "LSO",
     "name": "Lesotho",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ls.png",
     "borders": ["ZAF"]
   },
   "LBR": {
     "id": "LBR",
     "name": "Liberia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/lr.png",
     "borders": ["GIN", "CIV", "SLE"]
   },
   "LBY": {
     "id": "LBY",
     "name": "Libya",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ly.png",
     "borders": ["DZA", "TCD", "EGY", "NER", "SDN", "TUN"]
   },
   "LIE": {
     "id": "LIE",
     "name": "Liechtenstein",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/li.png",
     "borders": ["AUT", "CHE"]
   },
   "LTU": {
     "id": "LTU",
     "name": "Lithuania",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/lt.png",
     "borders": ["BLR", "LVA", "POL", "RUS"]
   },
   "LUX": {
     "id": "LUX",
     "name": "Luxembourg",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/lu.png",
     "borders": ["BEL", "FRA", "DEU"]
   },
   "MDG": {
     "id": "MDG",
     "name": "Madagascar",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/mg.png",
     "borders": []
   },
   "MWI": {
     "id": "MWI",
     "name": "Malawi",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/mw.png",
     "borders": ["MOZ", "TZA", "ZMB"]
   },
   "MYS": {
     "id": "MYS",
     "name": "Malaysia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/my.png",
     "borders": ["BRN", "IDN", "THA"]
   },
   "MDV": {
     "id": "MDV",
     "name": "Maldives",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/mv.png",
     "borders": []
   },
   "MLI": {
     "id": "MLI",
     "name": "Mali",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ml.png",
     "borders": ["DZA", "BFA", "GIN", "CIV", "MRT", "NER", "SEN"]
   },
   "MLT": {
     "id": "MLT",
     "name": "Malta",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/mt.png",
     "borders": []
   },
   "MHL": {
     "id": "MHL",
     "name": "Marshall Islands",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/mh.png",
     "borders": []
   },
   "MRT": {
     "id": "MRT",
     "name": "Mauritania",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/mr.png",
     "borders": ["DZA", "MLI", "SEN", "ESH"]
   },
   "MUS": {
     "id": "MUS",
     "name": "Mauritius",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/mu.png",
     "borders": []
   },
   "MEX": {
     "id": "MEX",
     "name": "Mexico",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/mx.png",
     "borders": ["BLZ", "GTM", "USA"]
   },
   "FSM": {
     "id": "FSM",
     "name": "Micronesia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/fm.png",
     "borders": []
   },
   "MDA": {
     "id": "MDA",
     "name": "Moldova",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/md.png",
     "borders": ["ROU", "UKR"]
   },
   "MCO": {
     "id": "MCO",
     "name": "Monaco",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/mc.png",
     "borders": ["FRA"]
   },
   "MNG": {
     "id": "MNG",
     "name": "Mongolia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/mn.png",
     "borders": ["CHN", "RUS"]
   },
   "MNE": {
     "id": "MNE",
     "name": "Montenegro",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/me.png",
     "borders": ["ALB", "BIH", "HRV", "UNK", "SRB"]
   },
   "MAR": {
     "id": "MAR",
     "name": "Morocco",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ma.png",
     "borders": ["DZA", "ESH", "ESP"]
   },
   "MOZ": {
     "id": "MOZ",
     "name": "Mozambique",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/mz.png",
     "borders": ["MWI", "ZAF", "SWZ", "TZA", "ZMB", "ZWE"]
   },
   "MMR": {
     "id": "MMR",
     "name": "Myanmar",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/mm.png",
     "borders": ["BGD", "CHN", "IND", "LAO", "THA"]
   },
   "NAM": {
     "id": "NAM",
     "name": "Namibia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/na.png",
     "borders": ["AGO", "BWA", "ZAF", "ZMB"]
   },
   "NRU": {
     "id": "NRU",
     "name": "Nauru",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/nr.png",
     "borders": []
   },
   "NPL": {
     "id": "NPL",
     "name": "Nepal",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/np.png",
     "borders": ["CHN", "IND"]
   },
   "NLD": {
     "id": "NLD",
     "name": "Netherlands",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/nl.png",
     "borders": ["BEL", "DEU"]
   },
   "NZL": {
     "id": "NZL",
     "name": "New Zealand",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/nz.png",
     "borders": []
   },
   "NIC": {
     "id": "NIC",
     "name": "Nicaragua",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ni.png",
     "borders": ["CRI", "HND"]
   },
   "NER": {
     "id": "NER",
     "name": "Niger",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ne.png",
     "borders": ["DZA", "BEN", "BFA", "TCD", "LBY", "MLI", "NGA"]
   },
   "NGA": {
     "id": "NGA",
     "name": "Nigeria",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ng.png",
     "borders": ["BEN", "CMR", "TCD", "NER"]
   },
   "PRK": {
     "id": "PRK",
     "name": "North Korea",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/kp.png",
     "borders": ["CHN", "KOR", "RUS"]
   },
   "MKD": {
     "id": "MKD",
     "name": "North Macedonia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/mk.png",
     "borders": ["ALB", "BGR", "GRC", "UNK", "SRB"]
   },
   "NOR": {
     "id": "NOR",
     "name": "Norway",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/no.png",
     "borders": ["FIN", "SWE", "RUS"]
   },
   "OMN": {
     "id": "OMN",
     "name": "Oman",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/om.png",
     "borders": ["SAU", "ARE", "YEM"]
   },
   "PAK": {
     "id": "PAK",
     "name": "Pakistan",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/pk.png",
     "borders": ["AFG", "CHN", "IND", "IRN"]
   },
   "PLW": {
     "id": "PLW",
     "name": "Palau",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/pw.png",
     "borders": []
   },
   "PAN": {
     "id": "PAN",
     "name": "Panama",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/pa.png",
     "borders": ["COL", "CRI"]
   },
   "PNG": {
     "id": "PNG",
     "name": "Papua New Guinea",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/pg.png",
     "borders": ["IDN"]
   },
   "PRY": {
     "id": "PRY",
     "name": "Paraguay",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/py.png",
     "borders": ["ARG", "BOL", "BRA"]
   },
   "PER": {
     "id": "PER",
     "name": "Peru",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/pe.png",
     "borders": ["BOL", "BRA", "CHL", "COL", "ECU"]
   },
   "PHL": {
     "id": "PHL",
     "name": "Philippines",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ph.png",
     "borders": []
   },
   "POL": {
     "id": "POL",
     "name": "Poland",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/pl.png",
     "borders": ["BLR", "CZE", "DEU", "LTU", "RUS", "SVK", "UKR"]
   },
   "PRT": {
     "id": "PRT",
     "name": "Portugal",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/pt.png",
     "borders": ["ESP"]
   },
   "QAT": {
     "id": "QAT",
     "name": "Qatar",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/qa.png",
     "borders": ["SAU"]
   },
   "COG": {
     "id": "COG",
     "name": "Republic of the Congo",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/cg.png",
     "borders": ["AGO", "CMR", "CAF", "COD", "GAB"]
   },
   "ROU": {
     "id": "ROU",
     "name": "Romania",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ro.png",
     "borders": ["BGR", "HUN", "MDA", "SRB", "UKR"]
   },
   "RUS": {
     "id": "RUS",
     "name": "Russia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ru.png",
     "borders": [
       "AZE",
       "BLR",
@@ -897,319 +897,319 @@
   "RWA": {
     "id": "RWA",
     "name": "Rwanda",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/rw.png",
     "borders": ["BDI", "COD", "TZA", "UGA"]
   },
   "KNA": {
     "id": "KNA",
     "name": "Saint Kitts and Nevis",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/kn.png",
     "borders": []
   },
   "LCA": {
     "id": "LCA",
     "name": "Saint Lucia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/lc.png",
     "borders": []
   },
   "VCT": {
     "id": "VCT",
     "name": "Saint Vincent and the Grenadines",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/vc.png",
     "borders": []
   },
   "WSM": {
     "id": "WSM",
     "name": "Samoa",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ws.png",
     "borders": []
   },
   "SMR": {
     "id": "SMR",
     "name": "San Marino",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/sm.png",
     "borders": ["ITA"]
   },
   "SAU": {
     "id": "SAU",
     "name": "Saudi Arabia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/sa.png",
     "borders": ["IRQ", "JOR", "KWT", "OMN", "QAT", "ARE", "YEM"]
   },
   "SEN": {
     "id": "SEN",
     "name": "Senegal",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/sn.png",
     "borders": ["GMB", "GIN", "GNB", "MLI", "MRT"]
   },
   "SRB": {
     "id": "SRB",
     "name": "Serbia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/rs.png",
     "borders": ["BIH", "BGR", "HRV", "HUN", "UNK", "MKD", "MNE", "ROU"]
   },
   "SYC": {
     "id": "SYC",
     "name": "Seychelles",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/sc.png",
     "borders": []
   },
   "SLE": {
     "id": "SLE",
     "name": "Sierra Leone",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/sl.png",
     "borders": ["GIN", "LBR"]
   },
   "SGP": {
     "id": "SGP",
     "name": "Singapore",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/sg.png",
     "borders": []
   },
   "SVK": {
     "id": "SVK",
     "name": "Slovakia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/sk.png",
     "borders": ["AUT", "CZE", "HUN", "POL", "UKR"]
   },
   "SVN": {
     "id": "SVN",
     "name": "Slovenia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/si.png",
     "borders": ["AUT", "HRV", "ITA", "HUN"]
   },
   "SLB": {
     "id": "SLB",
     "name": "Solomon Islands",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/sb.png",
     "borders": []
   },
   "SOM": {
     "id": "SOM",
     "name": "Somalia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/so.png",
     "borders": ["DJI", "ETH", "KEN"]
   },
   "ZAF": {
     "id": "ZAF",
     "name": "South Africa",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/za.png",
     "borders": ["BWA", "LSO", "MOZ", "NAM", "SWZ", "ZWE"]
   },
   "KOR": {
     "id": "KOR",
     "name": "South Korea",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/kr.png",
     "borders": ["PRK"]
   },
   "SSD": {
     "id": "SSD",
     "name": "South Sudan",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ss.png",
     "borders": ["CAF", "COD", "ETH", "KEN", "SDN", "UGA"]
   },
   "ESP": {
     "id": "ESP",
     "name": "Spain",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/es.png",
     "borders": ["AND", "FRA", "GIB", "PRT", "MAR"]
   },
   "LKA": {
     "id": "LKA",
     "name": "Sri Lanka",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/lk.png",
     "borders": ["IND"]
   },
   "SDN": {
     "id": "SDN",
     "name": "Sudan",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/sd.png",
     "borders": ["CAF", "TCD", "EGY", "ERI", "ETH", "LBY", "SSD"]
   },
   "SUR": {
     "id": "SUR",
     "name": "Suriname",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/sr.png",
     "borders": ["BRA", "GUF", "GUY"]
   },
   "SWE": {
     "id": "SWE",
     "name": "Sweden",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/se.png",
     "borders": ["FIN", "NOR"]
   },
   "CHE": {
     "id": "CHE",
     "name": "Switzerland",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ch.png",
     "borders": ["AUT", "FRA", "ITA", "LIE", "DEU"]
   },
   "SYR": {
     "id": "SYR",
     "name": "Syria",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/sy.png",
     "borders": ["IRQ", "ISR", "JOR", "LBN", "TUR"]
   },
   "STP": {
     "id": "STP",
-    "name": "S\u00e3o Tom\u00e9 and Pr\u00edncipe",
-    "flagUrl": "",
+    "name": "São Tomé and Príncipe",
+    "flagUrl": "https://flagcdn.com/w320/st.png",
     "borders": []
   },
   "TWN": {
     "id": "TWN",
     "name": "Taiwan",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/tw.png",
     "borders": []
   },
   "TJK": {
     "id": "TJK",
     "name": "Tajikistan",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/tj.png",
     "borders": ["AFG", "CHN", "KGZ", "UZB"]
   },
   "TZA": {
     "id": "TZA",
     "name": "Tanzania",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/tz.png",
     "borders": ["BDI", "COD", "KEN", "MWI", "MOZ", "RWA", "UGA", "ZMB"]
   },
   "THA": {
     "id": "THA",
     "name": "Thailand",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/th.png",
     "borders": ["MMR", "KHM", "LAO", "MYS"]
   },
   "TLS": {
     "id": "TLS",
     "name": "Timor-Leste",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/tl.png",
     "borders": ["IDN"]
   },
   "TGO": {
     "id": "TGO",
     "name": "Togo",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/tg.png",
     "borders": ["BEN", "BFA", "GHA"]
   },
   "TON": {
     "id": "TON",
     "name": "Tonga",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/to.png",
     "borders": []
   },
   "TTO": {
     "id": "TTO",
     "name": "Trinidad and Tobago",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/tt.png",
     "borders": []
   },
   "TUN": {
     "id": "TUN",
     "name": "Tunisia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/tn.png",
     "borders": ["DZA", "LBY"]
   },
   "TUR": {
     "id": "TUR",
     "name": "Turkey",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/tr.png",
     "borders": ["ARM", "AZE", "BGR", "GEO", "GRC", "IRN", "IRQ", "SYR"]
   },
   "TKM": {
     "id": "TKM",
     "name": "Turkmenistan",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/tm.png",
     "borders": ["AFG", "IRN", "KAZ", "UZB"]
   },
   "TUV": {
     "id": "TUV",
     "name": "Tuvalu",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/tv.png",
     "borders": []
   },
   "UGA": {
     "id": "UGA",
     "name": "Uganda",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ug.png",
     "borders": ["COD", "KEN", "RWA", "SSD", "TZA"]
   },
   "UKR": {
     "id": "UKR",
     "name": "Ukraine",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ua.png",
     "borders": ["BLR", "HUN", "MDA", "POL", "ROU", "RUS", "SVK"]
   },
   "ARE": {
     "id": "ARE",
     "name": "United Arab Emirates",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ae.png",
     "borders": ["OMN", "SAU"]
   },
   "GBR": {
     "id": "GBR",
     "name": "United Kingdom",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/gb.png",
     "borders": ["IRL"]
   },
   "USA": {
     "id": "USA",
     "name": "United States",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/us.png",
     "borders": ["CAN", "MEX"]
   },
   "URY": {
     "id": "URY",
     "name": "Uruguay",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/uy.png",
     "borders": ["ARG", "BRA"]
   },
   "UZB": {
     "id": "UZB",
     "name": "Uzbekistan",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/uz.png",
     "borders": ["AFG", "KAZ", "KGZ", "TJK", "TKM"]
   },
   "VUT": {
     "id": "VUT",
     "name": "Vanuatu",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/vu.png",
     "borders": []
   },
   "VAT": {
     "id": "VAT",
     "name": "Vatican City",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/va.png",
     "borders": ["ITA"]
   },
   "VEN": {
     "id": "VEN",
     "name": "Venezuela",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ve.png",
     "borders": ["BRA", "COL", "GUY"]
   },
   "VNM": {
     "id": "VNM",
     "name": "Vietnam",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/vn.png",
     "borders": ["KHM", "CHN", "LAO"]
   },
   "YEM": {
     "id": "YEM",
     "name": "Yemen",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/ye.png",
     "borders": ["OMN", "SAU"]
   },
   "ZMB": {
     "id": "ZMB",
     "name": "Zambia",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/zm.png",
     "borders": ["AGO", "BWA", "COD", "MWI", "MOZ", "NAM", "TZA", "ZWE"]
   },
   "ZWE": {
     "id": "ZWE",
     "name": "Zimbabwe",
-    "flagUrl": "",
+    "flagUrl": "https://flagcdn.com/w320/zw.png",
     "borders": ["BWA", "MOZ", "ZAF", "ZMB"]
   }
 }
