@@ -112,16 +112,10 @@ const FlagGrid = () => {
               rowArray.map((id, colIndex) => (
                 <div
                   key={id}
-                  className={`w-full h-full border-t-[3px] border-l-[3px] ${
-                    clickedFlagColors[id] === "green"
-                      ? "bg-green-300"
-                      : clickedFlagColors[id] === "red"
-                      ? "bg-red-300"
-                      : "bg-blue-300"
-                  }`}
+                  className="w-full h-full border-t-[3px] border-l-[3px] relative cursor-pointer"
                   onClick={() => flagClick(rowIndex, colIndex)}
                 >
-                  {/* {allCountries[id]?.name || "Unknown Country"} */}
+                  {/* Image of the flag */}
                   <div className="flex justify-center items-center w-full h-full">
                     <img
                       src={allCountries[id].flagUrl}
@@ -129,6 +123,17 @@ const FlagGrid = () => {
                       className="max-w-full max-h-full"
                     />
                   </div>
+                  {/* Green/red overlay */}
+                  {(clickedFlagColors[id] === "green" ||
+                    clickedFlagColors[id] === "red") && (
+                    <div
+                      className={`absolute top-0 left-0 w-full h-full bg-opacity-60 ${
+                        clickedFlagColors[id] === "green"
+                          ? "bg-green-500"
+                          : "bg-red-500"
+                      }`}
+                    ></div>
+                  )}
                 </div>
               ))
             )}
