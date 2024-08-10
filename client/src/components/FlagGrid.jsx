@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from "react";
-import countryData from "../countries.json";
 
-const FlagGrid = () => {
-  const firstCountry = "PRT";
-  const lastCountry = "BLR";
-
+const FlagGrid = ({ allCountries, firstCountry, lastCountry }) => {
   const [firstCountryClicked, setFirstCountryClicked] = useState(false);
   const [currCountry, setCurrCountry] = useState("");
-  const [gameFinished, setGameFinished] = useState(false);
+  const [gameState, setGameState] = useState("running");
   const [clickedFlagColors, setClickedFlagColors] = useState({});
-  const [allCountries, setAllCountries] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [lives, setLives] = useState(3);
 
   const gridCountries = [
     ["AFG", "AGO", "ALB", "PRT", "ARE", "BGR"],
@@ -20,12 +15,6 @@ const FlagGrid = () => {
     ["BDI", "BEN", "BFA", "BGD", "UKR", "MNG"],
     ["COL", "CUB", "CRI", "CPV", "BLR", "MOZ"],
   ];
-
-  // Load all countries' data
-  useEffect(() => {
-    setAllCountries(countryData);
-    setLoading(false);
-  }, []);
 
   // Handles game progression by clicking on flags
   const flagClick = (row, col) => {
@@ -55,11 +44,17 @@ const FlagGrid = () => {
 
       // Checks if the game is won
       if (id === lastCountry) {
-        setGameFinished(true);
+        setGameState("won");
       }
     }
     // Incorrect country
     else {
+      setLives((prev) => prev - 1);
+
+      if (lives === 0) {
+        setGameState("lost");
+      }
+
       changeFlagColor(id, "red");
     }
   };
@@ -102,11 +97,9 @@ const FlagGrid = () => {
   };
 
   return (
-    <div className="flex justify-center">
-      <div className="w-[900px] h-[600px] overflow-hidden border-b-2 border-r-2">
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
+    <div>
+      <div className="flex justify-center">
+        <div className="w-[900px] h-[600px] overflow-hidden border-b-2 border-r-2">
           <div className="grid grid-cols-6 grid-rows-6 w-full h-full">
             {gridCountries.map((rowArray, rowIndex) =>
               rowArray.map((id, colIndex) => (
@@ -127,7 +120,7 @@ const FlagGrid = () => {
                   {(clickedFlagColors[id] === "green" ||
                     clickedFlagColors[id] === "red") && (
                     <div
-                      className={`absolute top-0 left-0 w-full h-full bg-opacity-60 ${
+                      className={`absolute top-0 left-0 w-full h-full bg-opacity-75 ${
                         clickedFlagColors[id] === "green"
                           ? "bg-green-500"
                           : "bg-red-500"
@@ -138,8 +131,9 @@ const FlagGrid = () => {
               ))
             )}
           </div>
-        )}
+        </div>
       </div>
+      <p className="mt-4 text-4xl text-center">Lives left: {lives}</p>
     </div>
   );
 };
