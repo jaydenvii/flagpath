@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const FlagGrid = ({ allCountries, firstCountry, lastCountry }) => {
+const FlagGrid = ({ allCountries, firstCountry, lastCountry, onGameEnd }) => {
   const [firstCountryClicked, setFirstCountryClicked] = useState(false);
   const [currCountry, setCurrCountry] = useState("");
   const [gameState, setGameState] = useState("running");
@@ -15,6 +15,13 @@ const FlagGrid = ({ allCountries, firstCountry, lastCountry }) => {
     ["BDI", "BEN", "BFA", "BGD", "UKR", "MNG"],
     ["COL", "CUB", "CRI", "CPV", "BLR", "MOZ"],
   ];
+
+  // Monitors for when the player won/lost
+  useEffect(() => {
+    if (gameState === "won" || gameState === "lost") {
+      onGameEnd(gameState, lives);
+    }
+  }, [gameState]);
 
   // Handles game progression by clicking on flags
   const flagClick = (row, col) => {
