@@ -16,6 +16,13 @@ const FlagGrid = ({ allCountries, firstCountry, lastCountry, onGameEnd }) => {
     ["COL", "CUB", "CRI", "CPV", "BLR", "MOZ"],
   ];
 
+  // Monitors for when the player hits 0 lives
+  useEffect(() => {
+    if (lives === 0) {
+      setGameState("lost");
+    }
+  }, [lives]);
+
   // Monitors for when the player won/lost
   useEffect(() => {
     if (gameState === "won" || gameState === "lost") {
@@ -30,7 +37,9 @@ const FlagGrid = ({ allCountries, firstCountry, lastCountry, onGameEnd }) => {
     // Check for valid click
     if (
       clickedFlagColors[id] || // If the flag has already been clicked
-      (firstCountryClicked && !isNeighbor(row, col)) // If the flag is not a neighbor
+      (firstCountryClicked && !isNeighbor(row, col)) || // If the flag is not a neighbor
+      gameState === "won" || // If the game is already won
+      gameState === "lost" // If the game is already lost
     ) {
       return;
     }
@@ -57,10 +66,6 @@ const FlagGrid = ({ allCountries, firstCountry, lastCountry, onGameEnd }) => {
     // Incorrect country
     else {
       setLives((prev) => prev - 1);
-
-      if (lives === 0) {
-        setGameState("lost");
-      }
 
       changeFlagColor(id, "red");
     }
