@@ -125,21 +125,21 @@ const FlagGrid = ({ allCountries, firstCountry, lastCountry, onGameEnd }) => {
   return (
     <div>
       <div className="flex justify-center">
-        <div className="w-[900px] h-[600px] overflow-hidden border-b-[3px] border-r-[3px] border-gray-200">
+        <div className="w-[900px] h-[600px]">
           <div className="grid grid-cols-6 grid-rows-6 w-full h-full">
             {gridCountries.map((rowArray, rowIndex) =>
               rowArray.map((id, colIndex) => (
                 <div
                   key={id}
-                  className="w-full h-full border-t-[3px] border-l-[3px] relative cursor-pointer border-gray-200"
+                  className="relative border hover:border-[3px] border-gray-200 hover:border-yellow-300 cursor-pointer"
                   onClick={() => flagClick(rowIndex, colIndex)}
                 >
                   {/* Image of the flag */}
-                  <div className="flex justify-center items-center w-full h-full">
+                  <div className="w-full h-full">
                     <img
                       src={flagImageMap[id]}
                       alt=""
-                      className="max-w-full max-h-full"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                   {/* Green/red overlay */}
