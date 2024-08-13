@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
-    <div className="bg-gray-600 text-white min-h-screen font-semibold">
+    <div className="bg-gray-900 text-gray-100 min-h-screen font-semibold">
       <Outlet />
     </div>
   );

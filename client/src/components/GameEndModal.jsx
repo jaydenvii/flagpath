@@ -4,12 +4,12 @@ const GameEndModal = ({ isOpen, onClose, gameState, finishedLives }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
-      <div className="bg-gray-800 p-8 rounded-lg shadow-lg relative">
+    <div className="bg-gray-800 fixed inset-0 bg-opacity-70 flex items-center justify-center">
+      <div className="bg-gray-900 p-8 rounded-lg shadow-lg relative border-2 border-gray-200">
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-0 right-2 text-white hover:text-gray-200 text-4xl"
+          className="absolute top-0 right-2 hover:text-gray-200 text-4xl"
         >
           &times;
         </button>

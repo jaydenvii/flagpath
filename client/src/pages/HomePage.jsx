@@ -9,7 +9,7 @@ const HomePage = () => {
         <div className="flex justify-center mt-4">
           <Link
             to="/play"
-            className="px-5 py-4 bg-gray-700 hover:bg-gray-800 border-white border-2 hover:border-slate-100 text-5xl"
+            className="px-5 py-4 border-gray-200 hover:border-slate-100 border-2 text-5xl"
           >
             <p className="px-9">PLAY</p>
           </Link>
@@ -17,7 +17,7 @@ const HomePage = () => {
         <div className="flex justify-center mt-4">
           <Link
             to="/tutorial"
-            className="px-5 py-4 bg-gray-700 hover:bg-gray-800 border-white border-2 hover:border-slate-100 text-5xl"
+            className="px-5 py-4 border-gray-200 hover:border-slate-100 border-2 text-5xl"
           >
             <p className="px-9">TUTORIAL</p>
           </Link>
