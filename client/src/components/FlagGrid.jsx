@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 const FlagGrid = ({ allCountries, firstCountry, lastCountry, onGameEnd }) => {
   const [firstCountryClicked, setFirstCountryClicked] = useState(false);
@@ -15,6 +15,20 @@ const FlagGrid = ({ allCountries, firstCountry, lastCountry, onGameEnd }) => {
     ["BDI", "BEN", "BFA", "BGD", "UKR", "MNG"],
     ["COL", "CUB", "CRI", "CPV", "BLR", "MOZ"],
   ];
+
+  // Imports all flag images (vite)
+  const flagImages = import.meta.glob("../assets/flags/*.png", {
+    eager: true,
+  });
+
+  // Creates a map to access the flag images
+  const flagImageMap = useMemo(() => {
+    return Object.keys(flagImages).reduce((map, path) => {
+      const id = path.match(/\/([^/]+)\.png$/)[1];
+      map[id] = flagImages[path].default;
+      return map;
+    }, {});
+  }, []);
 
   // Monitors for when the player hits 0 lives
   useEffect(() => {
@@ -123,7 +137,7 @@ const FlagGrid = ({ allCountries, firstCountry, lastCountry, onGameEnd }) => {
                   {/* Image of the flag */}
                   <div className="flex justify-center items-center w-full h-full">
                     <img
-                      src={allCountries[id].flagUrl}
+                      src={flagImageMap[id]}
                       alt=""
                       className="max-w-full max-h-full"
                     />
