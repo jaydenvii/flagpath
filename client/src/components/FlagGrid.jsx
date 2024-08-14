@@ -1,20 +1,17 @@
 import React, { useState, useEffect, useMemo } from "react";
 
-const FlagGrid = ({ allCountries, firstCountry, lastCountry, onGameEnd }) => {
+const FlagGrid = ({
+  allCountries,
+  firstCountry,
+  lastCountry,
+  gridCountries,
+  onGameEnd,
+}) => {
   const [firstCountryClicked, setFirstCountryClicked] = useState(false);
   const [currCountry, setCurrCountry] = useState("");
   const [gameState, setGameState] = useState("running");
   const [clickedFlagColors, setClickedFlagColors] = useState({});
   const [lives, setLives] = useState(3);
-
-  const gridCountries = [
-    ["AFG", "AGO", "ALB", "PRT", "ARE", "BGR"],
-    ["ARG", "FRA", "AND", "ESP", "ARM", "BHR"],
-    ["CAN", "BEL", "ATG", "AUS", "BHS", "AUT"],
-    ["AZE", "NLD", "DEU", "CZE", "SVK", "BIH"],
-    ["BDI", "BEN", "BFA", "BGD", "UKR", "MNG"],
-    ["COL", "CUB", "CRI", "CPV", "BLR", "MOZ"],
-  ];
 
   // Imports all flag images (vite)
   const flagImages = import.meta.glob("../assets/flags/*.png", {
