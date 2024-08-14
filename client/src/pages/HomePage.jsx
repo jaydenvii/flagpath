@@ -54,12 +54,13 @@ const HomePage = () => {
 
   return (
     <div>
+      {/* Header */}
+      <h1 className="pt-4 mb-8 text-6xl text-center">🎌FlagPath</h1>
       {loading ? (
         <div>Loading...</div>
       ) : (
         <>
-          {/* Header text */}
-          <h1 className="pt-4 mb-8 text-6xl text-center">FlagPath</h1>
+          {/* Instruction text */}
           <p className="mt-10 mb-4 text-4xl text-center">
             Go from{" "}
             <span className="text-blue-300 font-bold">
