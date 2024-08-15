@@ -20,7 +20,7 @@ const HomePage = () => {
   const [showGameEndModal, setShowGameEndModal] = useState(false);
   const [showGridPickModal, setShowGridPickModal] = useState(false);
 
-  // Load all countries' data from countries.json and fetch grids from backend
+  // Loads all data on reload
   useEffect(() => {
     loadNewGrid(gridId);
   }, []);
@@ -76,6 +76,11 @@ const HomePage = () => {
   const handleGridPick = (newGridId) => {
     loadNewGrid(newGridId);
     setShowGridPickModal(false);
+    resetGame();
+  };
+
+  const resetGame = () => {
+    setGameState("running");
   };
 
   return (
@@ -107,6 +112,7 @@ const HomePage = () => {
           </p>
           {/* Grid */}
           <FlagGrid
+            key={gridId}
             allCountries={allCountries}
             firstCountry={firstCountry}
             lastCountry={lastCountry}
