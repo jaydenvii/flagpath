@@ -2,20 +2,31 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import FlagGrid from "../components/FlagGrid";
 import GameEndModal from "../components/GameEndModal";
+import GridPickModal from "../components/GridPickModal";
 import countryData from "../countries.json";
 
 const HomePage = () => {
-  const [allCountries, setAllCountries] = useState({});
+  const [gridId, setGridId] = useState(-1);
   const [firstCountry, setFirstCountry] = useState("");
   const [lastCountry, setLastCountry] = useState("");
   const [gridCountries, setGridCountries] = useState([[]]);
+
+  const [allCountries, setAllCountries] = useState({});
   const [gameState, setGameState] = useState("running");
   const [finishedLives, setFinishedLives] = useState(3);
+  const [totalGrids, setTotalGrids] = useState(0);
+
   const [loading, setLoading] = useState(true);
-  const [showModal, setShowModal] = useState(false);
+  const [showGameEndModal, setShowGameEndModal] = useState(false);
+  const [showGridPickModal, setShowGridPickModal] = useState(false);
 
   // Load all countries' data from countries.json and fetch grids from backend
   useEffect(() => {
+    loadNewGrid(gridId);
+  }, []);
+
+  // Load all countries' data from countries.json and fetch grids from backend
+  const loadNewGrid = (newGridId) => {
     // Load country data
     setAllCountries(countryData);
 
@@ -23,12 +34,21 @@ const HomePage = () => {
     const fetchDailyData = async () => {
       try {
         const response = await Axios.get("http://localhost:3001/getGrids");
-        const dailyData = response.data[0];
+        let targetGridId = newGridId;
+
+        // If the newGridId is -1, default to the latest one
+        if (targetGridId === -1) {
+          targetGridId = response.data.length - 1;
+        }
+
+        const dailyData = response.data[targetGridId];
 
         if (dailyData) {
+          setGridId(targetGridId + 1);
           setFirstCountry(dailyData.firstCountry);
           setLastCountry(dailyData.lastCountry);
           setGridCountries(dailyData.gridCountries);
+          setTotalGrids(response.data.length);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -38,13 +58,6 @@ const HomePage = () => {
     };
 
     fetchDailyData();
-  }, []);
-
-  // Handles the modal when the game ends
-  const handleGameEnd = (state, lives) => {
-    setGameState(state);
-    setFinishedLives(lives);
-    setShowModal(true);
   };
 
   // Gets the name of the country from the id
@@ -52,10 +65,31 @@ const HomePage = () => {
     return countryData[countryId]?.name || "Unknown Country";
   };
 
+  // Handles the modal when the game ends
+  const handleGameEnd = (state, lives) => {
+    setGameState(state);
+    setFinishedLives(lives);
+    setShowGameEndModal(true);
+  };
+
+  // Handles the modal when the player picks a new grid
+  const handleGridPick = (newGridId) => {
+    loadNewGrid(newGridId);
+    setShowGridPickModal(false);
+  };
+
   return (
     <div>
       {/* Header */}
-      <h1 className="pt-4 mb-8 text-6xl text-center">🎌FlagPath</h1>
+      <h1 className="pt-4 mb-8 text-6xl text-center">
+        🎌FlagPath
+        <span
+          className="ml-4 text-yellow-300 hover:text-cyan-300 underline cursor-pointer"
+          onClick={() => setShowGridPickModal(true)}
+        >
+          #{gridId}
+        </span>
+      </h1>
       {loading ? (
         <div>Loading...</div>
       ) : (
@@ -79,13 +113,22 @@ const HomePage = () => {
             gridCountries={gridCountries}
             onGameEnd={handleGameEnd}
           />
-          {/* Modal */}
-          {showModal && (
+          {/* Game end modal */}
+          {showGameEndModal && (
             <GameEndModal
-              isOpen={showModal}
-              onClose={() => setShowModal(false)}
+              isOpen={showGameEndModal}
+              onClose={() => setShowGameEndModal(false)}
               gameState={gameState}
               finishedLives={finishedLives}
+            />
+          )}
+          {/* Grid pick modal */}
+          {showGridPickModal && (
+            <GridPickModal
+              isOpen={showGridPickModal}
+              onClose={() => setShowGridPickModal(false)}
+              totalGrids={totalGrids}
+              onGridPick={handleGridPick}
             />
           )}
         </>
