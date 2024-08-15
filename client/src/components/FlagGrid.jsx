@@ -7,9 +7,9 @@ const FlagGrid = ({
   gridCountries,
   onGameEnd,
 }) => {
-  const [firstCountryClicked, setFirstCountryClicked] = useState(false);
-  const [currCountry, setCurrCountry] = useState("");
   const [gameState, setGameState] = useState("running");
+  const [currCountry, setCurrCountry] = useState("");
+  const [firstCountryClicked, setFirstCountryClicked] = useState(false);
   const [clickedFlagColors, setClickedFlagColors] = useState({});
   const [lives, setLives] = useState(3);
 

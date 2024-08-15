@@ -6,16 +6,19 @@ import GridPickModal from "../components/GridPickModal";
 import countryData from "../countries.json";
 
 const HomePage = () => {
-  const [gridId, setGridId] = useState(-1);
-  const [firstCountry, setFirstCountry] = useState("");
-  const [lastCountry, setLastCountry] = useState("");
-  const [gridCountries, setGridCountries] = useState([[]]);
-
+  // General game
   const [allCountries, setAllCountries] = useState({});
   const [gameState, setGameState] = useState("running");
   const [finishedLives, setFinishedLives] = useState(3);
   const [totalGrids, setTotalGrids] = useState(0);
 
+  // Specific grid
+  const [gridId, setGridId] = useState(-1);
+  const [firstCountry, setFirstCountry] = useState("");
+  const [lastCountry, setLastCountry] = useState("");
+  const [gridCountries, setGridCountries] = useState([[]]);
+
+  // UI
   const [loading, setLoading] = useState(true);
   const [showGameEndModal, setShowGameEndModal] = useState(false);
   const [showGridPickModal, setShowGridPickModal] = useState(false);
@@ -79,6 +82,7 @@ const HomePage = () => {
     resetGame();
   };
 
+  // Resets the game for a new grid
   const resetGame = () => {
     setGameState("running");
   };

@@ -15,6 +15,7 @@ const GridPickModal = ({ isOpen, onClose, totalGrids, onGridPick }) => {
         </button>
         {/* Modal Content */}
         <h2 className="text-3xl font-bold mb-4">Archived Grids</h2>
+        {/* List of previous grids */}
         {Array.from({ length: totalGrids }, (_, index) => (
           <div
             key={index}
