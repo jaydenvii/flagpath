@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Axios from "axios";
 import FlagGrid from "../components/FlagGrid";
 import GameEndModal from "../components/GameEndModal";
@@ -67,18 +67,18 @@ const HomePage = () => {
   };
 
   // Handles the modal when the game ends
-  const handleGameEnd = (state, lives) => {
+  const handleGameEnd = useCallback((state, lives) => {
     setGameState(state);
     setFinishedLives(lives);
     setShowGameEndModal(true);
-  };
+  }, []);
 
   // Handles the modal when the player picks a new grid
-  const handleGridPick = (newGridId) => {
+  const handleGridPick = useCallback((newGridId) => {
     loadNewGrid(newGridId);
     setShowGridPickModal(false);
     resetGame();
-  };
+  }, []);
 
   // Resets the game for a new grid
   const resetGame = () => {
