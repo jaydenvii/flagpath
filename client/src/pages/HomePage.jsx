@@ -37,7 +37,8 @@ const HomePage = () => {
     // Fetch grid data from backend
     const fetchDailyData = async () => {
       try {
-        const response = await Axios.get("http://localhost:3001/getGrids");
+        const apiUrl = import.meta.env.VITE_API_URL;
+        const response = await Axios.get(apiUrl);
         let targetGridId = newGridId;
 
         // If the newGridId is -1, default to the latest one
