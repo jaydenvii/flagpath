@@ -92,12 +92,14 @@ const HomePage = () => {
       {/* Header */}
       <h1 className="pt-4 mb-8 text-6xl text-center">
         🎌FlagPath
-        <span
-          className="ml-4 text-yellow-300 hover:text-cyan-300 underline cursor-pointer"
-          onClick={() => setShowGridPickModal(true)}
-        >
-          #{gridId}
-        </span>
+        {!loading && (
+          <span
+            className="ml-4 text-yellow-300 hover:text-cyan-300 underline cursor-pointer"
+            onClick={() => setShowGridPickModal(true)}
+          >
+            #{gridId}
+          </span>
+        )}
       </h1>
       {loading ? (
         <div>Loading...</div>
