@@ -3,6 +3,7 @@ import Axios from "axios";
 import FlagGrid from "../components/FlagGrid";
 import GameEndModal from "../components/GameEndModal";
 import GridPickModal from "../components/GridPickModal";
+import Spinner from "../components/Spinner";
 import countryData from "../countries.json";
 
 const HomePage = () => {
@@ -102,7 +103,10 @@ const HomePage = () => {
         )}
       </h1>
       {loading ? (
-        <div>Loading...</div>
+        <div className="flex flex-col justify-center items-center h-[65vh]">
+          <Spinner loading={loading} />
+          <p className="mt-2 text-2xl">Loading...</p>
+        </div>
       ) : (
         <>
           {/* Instruction text */}
