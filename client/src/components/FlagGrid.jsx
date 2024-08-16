@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 
 const FlagGrid = ({
-  allCountries,
+  countryData,
   firstCountry,
   lastCountry,
   gridCountries,
@@ -64,7 +64,7 @@ const FlagGrid = ({
     // Subsequent correct countries
     else if (
       firstCountryClicked &&
-      allCountries[currCountry].borders.includes(id)
+      countryData[currCountry].borders.includes(id)
     ) {
       setCurrCountry(id);
       changeFlagColor(id, "green");

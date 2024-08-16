@@ -8,7 +8,6 @@ import countryData from "../countries.json";
 
 const HomePage = () => {
   // General game
-  const [allCountries, setAllCountries] = useState({});
   const [gameState, setGameState] = useState("running");
   const [finishedLives, setFinishedLives] = useState(3);
   const [totalGrids, setTotalGrids] = useState(0);
@@ -31,9 +30,6 @@ const HomePage = () => {
 
   // Load all countries' data from countries.json and fetch grids from backend
   const loadNewGrid = (newGridId) => {
-    // Load country data
-    setAllCountries(countryData);
-
     // Fetch grid data from backend
     const fetchDailyData = async () => {
       try {
@@ -124,7 +120,7 @@ const HomePage = () => {
           {/* Grid */}
           <FlagGrid
             key={gridId}
-            allCountries={allCountries}
+            countryData={countryData}
             firstCountry={firstCountry}
             lastCountry={lastCountry}
             gridCountries={gridCountries}
