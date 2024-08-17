@@ -1,17 +1,25 @@
 import React, { useState, useEffect, useMemo } from "react";
 
-const FlagGrid = ({
-  countryData,
-  firstCountry,
-  lastCountry,
-  gridCountries,
-  onGameEnd,
-}) => {
+const FlagGrid = ({ firstCountry, lastCountry, gridCountries, onGameEnd }) => {
   const [gameState, setGameState] = useState("running");
-  const [currCountry, setCurrCountry] = useState("");
+  const [currCountryIndex, setCurrCountryIndex] = useState(-1);
   const [firstCountryClicked, setFirstCountryClicked] = useState(false);
   const [clickedFlagColors, setClickedFlagColors] = useState({});
   const [lives, setLives] = useState(3);
+
+  const countryOrder = [
+    "PRT",
+    "ESP",
+    "AND",
+    "FRA",
+    "BEL",
+    "NLD",
+    "DEU",
+    "CZE",
+    "SVK",
+    "UKR",
+    "BLR",
+  ];
 
   // Imports all flag images (vite)
   const flagImages = import.meta.glob("../assets/flags/*.png", {
@@ -58,15 +66,12 @@ const FlagGrid = ({
     // First correct country
     if (!firstCountryClicked && id === firstCountry) {
       setFirstCountryClicked(true);
-      setCurrCountry(firstCountry);
+      setCurrCountryIndex(0);
       changeFlagColor(id, "green");
     }
     // Subsequent correct countries
-    else if (
-      firstCountryClicked &&
-      countryData[currCountry].borders.includes(id)
-    ) {
-      setCurrCountry(id);
+    else if (firstCountryClicked && id === countryOrder[currCountryIndex + 1]) {
+      setCurrCountryIndex((prev) => prev + 1);
       changeFlagColor(id, "green");
 
       // Checks if the game is won
@@ -84,7 +89,7 @@ const FlagGrid = ({
 
   // Checks if the clicked flag is adjacent to the current flag on the grid
   const isNeighbor = (row, col) => {
-    const currPosition = findPosition(currCountry);
+    const currPosition = findPosition(currCountryIndex);
     if (!currPosition) return false;
 
     const [currRow, currCol] = currPosition;
@@ -103,7 +108,7 @@ const FlagGrid = ({
   const findPosition = (countryId) => {
     for (let row = 0; row < gridCountries.length; row++) {
       for (let col = 0; col < gridCountries[row].length; col++) {
-        if (gridCountries[row][col] === countryId) {
+        if (gridCountries[row][col] === countryOrder[countryId]) {
           return [row, col];
         }
       }
