@@ -1,25 +1,17 @@
 import React, { useState, useEffect, useMemo } from "react";
 
-const FlagGrid = ({ firstCountry, lastCountry, gridCountries, onGameEnd }) => {
+const FlagGrid = ({
+  gridCountries,
+  countryOrder,
+  firstCountry,
+  lastCountry,
+  onGameEnd,
+}) => {
   const [gameState, setGameState] = useState("running");
   const [currCountryIndex, setCurrCountryIndex] = useState(-1);
   const [firstCountryClicked, setFirstCountryClicked] = useState(false);
   const [clickedFlagColors, setClickedFlagColors] = useState({});
   const [lives, setLives] = useState(3);
-
-  const countryOrder = [
-    "PRT",
-    "ESP",
-    "AND",
-    "FRA",
-    "BEL",
-    "NLD",
-    "DEU",
-    "CZE",
-    "SVK",
-    "UKR",
-    "BLR",
-  ];
 
   // Imports all flag images (vite)
   const flagImages = import.meta.glob("../assets/flags/*.png", {

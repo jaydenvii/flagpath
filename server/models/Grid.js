@@ -6,20 +6,12 @@ const GridSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
-  date: {
-    type: Date,
-    required: true,
-  },
-  firstCountry: {
-    type: String,
-    required: true,
-  },
-  lastCountry: {
-    type: String,
-    required: true,
-  },
   gridCountries: {
     type: [[String]],
+    required: true,
+  },
+  countryOrder: {
+    type: [String],
     required: true,
   },
 });

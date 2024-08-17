@@ -14,9 +14,10 @@ const HomePage = () => {
 
   // Specific grid
   const [gridId, setGridId] = useState(-1);
+  const [gridCountries, setGridCountries] = useState([[]]);
+  const [countryOrder, setCountryOrder] = useState([]);
   const [firstCountry, setFirstCountry] = useState("");
   const [lastCountry, setLastCountry] = useState("");
-  const [gridCountries, setGridCountries] = useState([[]]);
 
   // UI
   const [loading, setLoading] = useState(true);
@@ -46,9 +47,12 @@ const HomePage = () => {
 
         if (dailyData) {
           setGridId(targetGridId + 1);
-          setFirstCountry(dailyData.firstCountry);
-          setLastCountry(dailyData.lastCountry);
           setGridCountries(dailyData.gridCountries);
+          setCountryOrder(dailyData.countryOrder);
+          setFirstCountry(dailyData.countryOrder[0]);
+          setLastCountry(
+            dailyData.countryOrder[dailyData.countryOrder.length - 1]
+          );
           setTotalGrids(response.data.length);
         }
       } catch (error) {
@@ -120,10 +124,10 @@ const HomePage = () => {
           {/* Grid */}
           <FlagGrid
             key={gridId}
-            countryData={countryData}
+            gridCountries={gridCountries}
+            countryOrder={countryOrder}
             firstCountry={firstCountry}
             lastCountry={lastCountry}
-            gridCountries={gridCountries}
             onGameEnd={handleGameEnd}
           />
           {/* Game end modal */}
