@@ -8,6 +8,7 @@ const FlagGrid = ({
   onGameEnd,
 }) => {
   const [gameState, setGameState] = useState("running");
+  const [currCountry, setCurrCountry] = useState("");
   const [currCountryIndex, setCurrCountryIndex] = useState(-1);
   const [firstCountryClicked, setFirstCountryClicked] = useState(false);
   const [clickedFlagColors, setClickedFlagColors] = useState({});
@@ -26,6 +27,11 @@ const FlagGrid = ({
       return map;
     }, {});
   }, []);
+
+  // Updates currCountry when currCountryIndex changes
+  useEffect(() => {
+    setCurrCountry(countryOrder[currCountryIndex]);
+  }, [currCountryIndex]);
 
   // Monitors for when the player hits 0 lives
   useEffect(() => {
@@ -108,7 +114,7 @@ const FlagGrid = ({
     return null;
   };
 
-  // Changes the flags' colours to show a correct/incorrect guess
+  // Changes the flags' colors to show a correct/incorrect guess
   const changeFlagColor = (id, color) => {
     setClickedFlagColors((prev) => ({
       ...prev,
@@ -122,33 +128,46 @@ const FlagGrid = ({
         <div className="w-[900px] h-[600px]">
           <div className="grid grid-cols-6 grid-rows-6 w-full h-full">
             {gridCountries.map((rowArray, rowIndex) =>
-              rowArray.map((id, colIndex) => (
-                <div
-                  key={id}
-                  className="relative border hover:border-[3px] border-gray-200 hover:border-yellow-300 cursor-pointer"
-                  onClick={() => flagClick(rowIndex, colIndex)}
-                >
-                  {/* Image of the flag */}
-                  <div className="w-full h-full">
-                    <img
-                      src={flagImageMap[id]}
-                      alt=""
-                      className="w-full h-full object-cover"
-                    />
+              rowArray.map((id, colIndex) => {
+                // Adjacent flags
+                const isAdjacent = isNeighbor(rowIndex, colIndex);
+
+                return (
+                  // Border around the flag
+                  <div
+                    key={id}
+                    className={`relative border hover:border-[3px] border-gray-200 hover:border-yellow-300 cursor-pointer ${
+                      id === currCountry ? "border-[4px] border-amber-400" : ""
+                    }`}
+                    onClick={() => flagClick(rowIndex, colIndex)}
+                  >
+                    {/* Image of the flag */}
+                    <div className="w-full h-full">
+                      <img
+                        src={flagImageMap[id]}
+                        alt=""
+                        className={`w-full h-full object-cover ${
+                          (currCountry && !isAdjacent && id !== currCountry) || // Dims all countries that are not adjacent
+                          (isAdjacent && gameState != "running") // Dims adjacent countries if the game is over
+                            ? "opacity-40"
+                            : ""
+                        }`}
+                      />
+                    </div>
+                    {/* Green/red overlay */}
+                    {(clickedFlagColors[id] === "green" ||
+                      clickedFlagColors[id] === "red") && (
+                      <div
+                        className={`absolute top-0 left-0 w-full h-full bg-opacity-75 ${
+                          clickedFlagColors[id] === "green"
+                            ? "bg-green-500"
+                            : "bg-red-500"
+                        }`}
+                      ></div>
+                    )}
                   </div>
-                  {/* Green/red overlay */}
-                  {(clickedFlagColors[id] === "green" ||
-                    clickedFlagColors[id] === "red") && (
-                    <div
-                      className={`absolute top-0 left-0 w-full h-full bg-opacity-75 ${
-                        clickedFlagColors[id] === "green"
-                          ? "bg-green-500"
-                          : "bg-red-500"
-                      }`}
-                    ></div>
-                  )}
-                </div>
-              ))
+                );
+              })
             )}
           </div>
         </div>
