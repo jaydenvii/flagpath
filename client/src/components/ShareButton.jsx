@@ -9,7 +9,7 @@ const ShareButton = ({ gridId, finishedLives, checkMarks, crosses }) => {
     navigator.clipboard.writeText(shareText).then(
       () => {
         setButtonText("Copied!");
-        setTimeout(() => setButtonText("Copy Text"), 2000); // Reset button text after 2 seconds
+        setTimeout(() => setButtonText("Share"), 2000); // Reset button text after 2 seconds
       },
       (err) => {
         alert("Failed to copy: ", err);
