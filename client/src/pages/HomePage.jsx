@@ -135,6 +135,7 @@ const HomePage = () => {
             <GameEndModal
               isOpen={showGameEndModal}
               onClose={() => setShowGameEndModal(false)}
+              gridId={gridId}
               gameState={gameState}
               finishedLives={finishedLives}
             />
