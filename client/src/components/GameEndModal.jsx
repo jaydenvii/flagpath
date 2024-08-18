@@ -60,7 +60,7 @@ const GameEndModal = ({
             return (
               <div
                 key={countryId}
-                className={`p-2 w-[150px] rounded text-center ${
+                className={`flex flex-col justify-between p-2 w-[150px] rounded text-center ${
                   isFirstCountry
                     ? "bg-blue-500"
                     : isLastCountry
@@ -68,7 +68,7 @@ const GameEndModal = ({
                     : "bg-gray-700"
                 }`}
               >
-                <p>
+                <p className="flex-grow">
                   {index + 1}. {getCountryName(countryId)}
                 </p>
                 <img
@@ -87,9 +87,9 @@ const GameEndModal = ({
             return (
               <div
                 key={countryId}
-                className="p-2 w-[150px] rounded text-center bg-gray-700"
+                className="flex flex-col justify-between p-2 w-[150px] rounded text-center bg-gray-700"
               >
-                <p>
+                <p className="flex-grow">
                   {index + 1}. {getCountryName(countryId)}
                 </p>
                 <img
