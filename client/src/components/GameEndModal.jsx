@@ -12,8 +12,6 @@ const GameEndModal = ({
 }) => {
   if (!isOpen) return null;
 
-  console.log(countryOrder);
-
   // Lives left
   const maxLives = 3;
   const checkMarks = "✅".repeat(finishedLives);

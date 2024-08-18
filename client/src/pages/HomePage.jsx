@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import Axios from "axios";
 import FlagGrid from "../components/FlagGrid";
 import GameEndModal from "../components/GameEndModal";
@@ -23,6 +23,20 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const [showGameEndModal, setShowGameEndModal] = useState(false);
   const [showGridPickModal, setShowGridPickModal] = useState(false);
+
+  // Imports all flag images (vite)
+  const flagImages = import.meta.glob("../assets/flags/*.png", {
+    eager: true,
+  });
+
+  // Creates a map to access the flag images
+  const flagImageMap = useMemo(() => {
+    return Object.keys(flagImages).reduce((map, path) => {
+      const id = path.match(/\/([^/]+)\.png$/)[1];
+      map[id] = flagImages[path].default;
+      return map;
+    }, {});
+  }, []);
 
   // Loads all data on reload
   useEffect(() => {
@@ -124,6 +138,7 @@ const HomePage = () => {
           {/* Grid */}
           <FlagGrid
             key={gridId}
+            flagImageMap={flagImageMap}
             gridCountries={gridCountries}
             countryOrder={countryOrder}
             firstCountry={firstCountry}
@@ -140,6 +155,7 @@ const HomePage = () => {
               finishedLives={finishedLives}
               countryOrder={countryOrder}
               getCountryName={getCountryName}
+              flagImageMap={flagImageMap}
             />
           )}
           {/* Grid pick modal */}

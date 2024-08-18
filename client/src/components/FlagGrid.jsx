@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 
 const FlagGrid = ({
+  flagImageMap,
   gridCountries,
   countryOrder,
   firstCountry,
@@ -13,20 +14,6 @@ const FlagGrid = ({
   const [firstCountryClicked, setFirstCountryClicked] = useState(false);
   const [clickedFlagColors, setClickedFlagColors] = useState({});
   const [lives, setLives] = useState(3);
-
-  // Imports all flag images (vite)
-  const flagImages = import.meta.glob("../assets/flags/*.png", {
-    eager: true,
-  });
-
-  // Creates a map to access the flag images
-  const flagImageMap = useMemo(() => {
-    return Object.keys(flagImages).reduce((map, path) => {
-      const id = path.match(/\/([^/]+)\.png$/)[1];
-      map[id] = flagImages[path].default;
-      return map;
-    }, {});
-  }, []);
 
   // Updates currCountry when currCountryIndex changes
   useEffect(() => {
