@@ -7,8 +7,12 @@ const GameEndModal = ({
   gridId,
   gameState,
   finishedLives,
+  countryOrder,
+  getCountryName,
 }) => {
   if (!isOpen) return null;
+
+  console.log(countryOrder);
 
   // Lives left
   const maxLives = 3;
@@ -35,16 +39,28 @@ const GameEndModal = ({
         </p>
         <p className="text-xl text-center">
           {gameState === "won"
-            ? `You won with ${finishedLives}/3 Lives!`
+            ? `You won with ${finishedLives}/3 lives!`
             : "You lost all of your lives."}
         </p>
-
+        {/* Share button */}
         <ShareButton
           gridId={gridId}
           finishedLives={finishedLives}
           checkMarks={checkMarks}
           crosses={crosses}
         />
+        {/* Correct path */}
+        <p className="text-xl mb-2">Correct Path:</p>
+        <div className="flex justify-center flex-wrap gap-2">
+          {countryOrder.map((country, index) => (
+            <div
+              key={country}
+              className="border p-2 w-[160px] rounded bg-gray-700 text-center text-lg"
+            >
+              {index + 1}. {getCountryName(country)}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

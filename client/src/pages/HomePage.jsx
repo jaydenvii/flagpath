@@ -66,9 +66,9 @@ const HomePage = () => {
   };
 
   // Gets the name of the country from the id
-  const getCountryName = (countryId) => {
+  const getCountryName = useCallback((countryId) => {
     return countryData[countryId]?.name || "Unknown Country";
-  };
+  }, []);
 
   // Handles the modal when the game ends
   const handleGameEnd = useCallback((state, lives) => {
@@ -138,6 +138,8 @@ const HomePage = () => {
               gridId={gridId}
               gameState={gameState}
               finishedLives={finishedLives}
+              countryOrder={countryOrder}
+              getCountryName={getCountryName}
             />
           )}
           {/* Grid pick modal */}
