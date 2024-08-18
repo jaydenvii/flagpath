@@ -9,6 +9,7 @@ const GameEndModal = ({
   finishedLives,
   countryOrder,
   getCountryName,
+  flagImageMap,
 }) => {
   if (!isOpen) return null;
 
@@ -50,14 +51,33 @@ const GameEndModal = ({
         {/* Correct path */}
         <p className="text-xl mb-2">Correct Path:</p>
         <div className="flex justify-center flex-wrap gap-2">
-          {countryOrder.map((country, index) => (
-            <div
-              key={country}
-              className="border p-2 w-[160px] rounded bg-gray-700 text-center text-lg"
-            >
-              {index + 1}. {getCountryName(country)}
-            </div>
-          ))}
+          {countryOrder.map((countryId, index) => {
+            // Determine if it's the first or last country
+            const isFirstCountry = index === 0;
+            const isLastCountry = index === countryOrder.length - 1;
+
+            return (
+              <div
+                key={countryId}
+                className={`p-2 w-[150px] rounded text-center ${
+                  isFirstCountry
+                    ? "bg-blue-500"
+                    : isLastCountry
+                    ? "bg-red-500"
+                    : "bg-gray-700"
+                }`}
+              >
+                <p>
+                  {index + 1}. {getCountryName(countryId)}
+                </p>
+                <img
+                  src={flagImageMap[countryId]}
+                  alt={getCountryName(countryId)}
+                  className="border"
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
