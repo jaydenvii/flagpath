@@ -8,6 +8,7 @@ const GameEndModal = ({
   gameState,
   finishedLives,
   countryOrder,
+  mistakes,
   getCountryName,
   flagImageMap,
 }) => {
@@ -66,6 +67,27 @@ const GameEndModal = ({
                     ? "bg-red-500"
                     : "bg-gray-700"
                 }`}
+              >
+                <p>
+                  {index + 1}. {getCountryName(countryId)}
+                </p>
+                <img
+                  src={flagImageMap[countryId]}
+                  alt={getCountryName(countryId)}
+                  className="border"
+                />
+              </div>
+            );
+          })}
+        </div>
+        {/* Mistakes */}
+        <p className="text-xl mb-2">Mistakes:</p>
+        <div className="flex justify-center flex-wrap gap-2">
+          {mistakes.map((countryId, index) => {
+            return (
+              <div
+                key={countryId}
+                className="p-2 w-[150px] rounded text-center bg-gray-700"
               >
                 <p>
                   {index + 1}. {getCountryName(countryId)}

@@ -18,6 +18,7 @@ const HomePage = () => {
   const [countryOrder, setCountryOrder] = useState([]);
   const [firstCountry, setFirstCountry] = useState("");
   const [lastCountry, setLastCountry] = useState("");
+  const [mistakes, setMistakes] = useState([]);
 
   // UI
   const [loading, setLoading] = useState(true);
@@ -85,9 +86,10 @@ const HomePage = () => {
   }, []);
 
   // Handles the modal when the game ends
-  const handleGameEnd = useCallback((state, lives) => {
+  const handleGameEnd = useCallback((state, lives, mistakes) => {
     setGameState(state);
     setFinishedLives(lives);
+    setMistakes(mistakes);
     setShowGameEndModal(true);
   }, []);
 
@@ -154,6 +156,7 @@ const HomePage = () => {
               gameState={gameState}
               finishedLives={finishedLives}
               countryOrder={countryOrder}
+              mistakes={mistakes}
               getCountryName={getCountryName}
               flagImageMap={flagImageMap}
             />
