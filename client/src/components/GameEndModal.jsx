@@ -30,7 +30,7 @@ const GameEndModal = ({
           &times;
         </button>
         {/* Modal Content */}
-        <h2 className="text-3xl font-bold mb-4 text-center">
+        <h2 className="text-4xl font-bold mb-4 text-center">
           🎌FlagPath #{gridId}
         </h2>
         <p className="text-4xl text-center">
@@ -50,7 +50,7 @@ const GameEndModal = ({
           crosses={crosses}
         />
         {/* Correct path */}
-        <p className="text-xl mb-2">Correct Path:</p>
+        <p className="text-2xl text-center mt-4 -2">Correct Path:</p>
         <div className="flex justify-center flex-wrap gap-2">
           {countryOrder.map((countryId, index) => {
             // Determine if it's the first or last country
@@ -81,7 +81,7 @@ const GameEndModal = ({
           })}
         </div>
         {/* Mistakes */}
-        <p className="text-xl mb-2">Mistakes:</p>
+        <p className="text-2xl text-center mt-4 -2">Mistakes:</p>
         <div className="flex justify-center flex-wrap gap-2">
           {mistakes.map((countryId, index) => {
             return (
