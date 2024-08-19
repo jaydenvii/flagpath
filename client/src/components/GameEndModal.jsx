@@ -64,7 +64,7 @@ const GameEndModal = ({
           countries={mistakes}
           flagImageMap={flagImageMap}
           getCountryName={getCountryName}
-          highlightFirstAndLast={false}
+          highlightFirstAndLast={true}
         />
       </div>
     </div>
