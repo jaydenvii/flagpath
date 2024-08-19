@@ -1,5 +1,6 @@
 import React from "react";
 import ShareButton from "./ShareButton";
+import CountryList from "./CountryList";
 
 const GameEndModal = ({
   isOpen,
@@ -49,58 +50,22 @@ const GameEndModal = ({
           checkMarks={checkMarks}
           crosses={crosses}
         />
-        {/* Correct path */}
-        <p className="text-2xl text-center mt-4 -2">Correct Path:</p>
-        <div className="flex justify-center flex-wrap gap-2">
-          {countryOrder.map((countryId, index) => {
-            // Determine if it's the first or last country
-            const isFirstCountry = index === 0;
-            const isLastCountry = index === countryOrder.length - 1;
-
-            return (
-              <div
-                key={countryId}
-                className={`flex flex-col justify-between p-2 w-[150px] rounded text-center ${
-                  isFirstCountry
-                    ? "bg-blue-500"
-                    : isLastCountry
-                    ? "bg-red-500"
-                    : "bg-gray-700"
-                }`}
-              >
-                <p className="flex-grow">
-                  {index + 1}. {getCountryName(countryId)}
-                </p>
-                <img
-                  src={flagImageMap[countryId]}
-                  alt={getCountryName(countryId)}
-                  className="border"
-                />
-              </div>
-            );
-          })}
-        </div>
+        {/* Correct Path */}
+        <CountryList
+          title="Correct Path"
+          countries={countryOrder}
+          flagImageMap={flagImageMap}
+          getCountryName={getCountryName}
+          highlightFirstAndLast={false}
+        />
         {/* Mistakes */}
-        <p className="text-2xl text-center mt-4 -2">Mistakes:</p>
-        <div className="flex justify-center flex-wrap gap-2">
-          {mistakes.map((countryId, index) => {
-            return (
-              <div
-                key={countryId}
-                className="flex flex-col justify-between p-2 w-[150px] rounded text-center bg-gray-700"
-              >
-                <p className="flex-grow">
-                  {index + 1}. {getCountryName(countryId)}
-                </p>
-                <img
-                  src={flagImageMap[countryId]}
-                  alt={getCountryName(countryId)}
-                  className="border"
-                />
-              </div>
-            );
-          })}
-        </div>
+        <CountryList
+          title="Mistakes"
+          countries={mistakes}
+          flagImageMap={flagImageMap}
+          getCountryName={getCountryName}
+          highlightFirstAndLast={false}
+        />
       </div>
     </div>
   );
