@@ -22,7 +22,7 @@ const GameEndModal = ({
 
   return (
     <div className="bg-gray-800 fixed inset-0 bg-opacity-70 flex items-center justify-center">
-      <div className="w-[40vw] bg-gray-900 p-8 rounded-lg shadow-lg relative border-2 border-gray-200">
+      <div className="w-[768px] bg-gray-900 p-8 rounded-lg shadow-lg relative border-2 border-gray-200">
         {/* Close button */}
         <button
           onClick={onClose}
