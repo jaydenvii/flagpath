@@ -58,13 +58,16 @@ const GameEndModal = ({
           flagImageMap={flagImageMap}
           getCountryName={getCountryName}
         />
-        {/* Mistakes */}
-        <MistakeFlags
-          preFirstGuessMistakes={preFirstGuessMistakes}
-          postFirstGuessMistakes={postFirstGuessMistakes}
-          flagImageMap={flagImageMap}
-          getCountryName={getCountryName}
-        />
+        {/* Mistakes (only shows when there are mistakes) */}
+        {preFirstGuessMistakes.length > 0 ||
+        postFirstGuessMistakes.length > 0 ? (
+          <MistakeFlags
+            preFirstGuessMistakes={preFirstGuessMistakes}
+            postFirstGuessMistakes={postFirstGuessMistakes}
+            flagImageMap={flagImageMap}
+            getCountryName={getCountryName}
+          />
+        ) : null}
       </div>
     </div>
   );
