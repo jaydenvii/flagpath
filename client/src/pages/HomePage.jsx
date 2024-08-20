@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import Axios from "axios";
 import FlagGrid from "../components/FlagGrid";
+import TutorialModal from "../components/TutorialModal";
 import GameEndModal from "../components/GameEndModal";
 import GridPickModal from "../components/GridPickModal";
 import Spinner from "../components/Spinner";
@@ -23,6 +24,7 @@ const HomePage = () => {
 
   // UI
   const [loading, setLoading] = useState(true);
+  const [showTutorialModal, setShowTutorialModal] = useState(false);
   const [showGameEndModal, setShowGameEndModal] = useState(false);
   const [showGridPickModal, setShowGridPickModal] = useState(false);
 
@@ -124,6 +126,13 @@ const HomePage = () => {
           </span>
         )}
       </h1>
+      {/* Tutorial Button */}
+      <button
+        className="absolute top-4 right-4 px-1 py-1 bg-gray-600 hover:bg-slate-400 text-2xl rounded"
+        onClick={() => setShowTutorialModal(true)}
+      >
+        ❓
+      </button>
       {loading ? (
         <div className="flex flex-col justify-center items-center h-[65vh]">
           <Spinner loading={loading} />
@@ -152,6 +161,13 @@ const HomePage = () => {
             lastCountry={lastCountry}
             onGameEnd={handleGameEnd}
           />
+          {/* Tutorial modal */}
+          {showTutorialModal && (
+            <TutorialModal
+              isOpen={showTutorialModal}
+              onClose={() => setShowTutorialModal(false)}
+            />
+          )}
           {/* Game end modal */}
           {showGameEndModal && (
             <GameEndModal
