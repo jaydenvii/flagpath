@@ -13,6 +13,7 @@ const FlagGrid = ({
   const [currCountryIndex, setCurrCountryIndex] = useState(-1);
   const [firstCountryClicked, setFirstCountryClicked] = useState(false);
   const [correctClickedFlags, setCorrectClickedFlags] = useState([]);
+  const [incorrectClickedFlags, setIncorrectClickedFlags] = useState([]);
   const [mistakes, setMistakes] = useState([]);
   const [lives, setLives] = useState(3);
 
@@ -69,6 +70,7 @@ const FlagGrid = ({
     else {
       setLives((prev) => prev - 1);
       setMistakes((prev) => [...prev, id]);
+      displayFlagAsIncorrect(id);
     }
   };
 
@@ -106,6 +108,16 @@ const FlagGrid = ({
     setCorrectClickedFlags((prev) => [...prev, id]);
   };
 
+  // Adds a red tint to a flag for 1 second to show an incorrect guess
+  const displayFlagAsIncorrect = (id) => {
+    setIncorrectClickedFlags((prev) => [...prev, id]);
+    setTimeout(() => {
+      setIncorrectClickedFlags((prev) =>
+        prev.filter((flagId) => flagId !== id)
+      );
+    }, 1000);
+  };
+
   return (
     <div>
       <div className="flex justify-center">
@@ -138,9 +150,13 @@ const FlagGrid = ({
                         }`}
                       />
                     </div>
-                    {/* Green overlay */}
+                    {/* Green correct overlay */}
                     {correctClickedFlags.includes(id) && (
                       <div className="absolute top-0 left-0 w-full h-full bg-opacity-75 bg-green-500"></div>
+                    )}
+                    {/* Red incorrect overlay */}
+                    {incorrectClickedFlags.includes(id) && (
+                      <div className="absolute top-0 left-0 w-full h-full bg-opacity-75 bg-red-500"></div>
                     )}
                   </div>
                 );
