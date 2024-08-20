@@ -1,28 +1,19 @@
 import React from "react";
 
-const CountryList = ({
-  title,
-  countries,
-  flagImageMap,
-  getCountryName,
-  highlightFirstAndLast,
-}) => {
+const CorrectPathFlags = ({ countries, flagImageMap, getCountryName }) => {
   return (
     <div>
-      <p className="text-2xl text-center mt-4">{title}:</p>
+      <p className="text-2xl text-center mt-4">Correct Path:</p>
       <div className="flex justify-center flex-wrap gap-2">
         {countries.map((countryId, index) => {
-          const isFirstCountry = !highlightFirstAndLast && index === 0;
-          const isLastCountry =
-            !highlightFirstAndLast && index === countries.length - 1;
+          const isFirstCountry = index === 0;
+          const isLastCountry = index === countries.length - 1;
 
           return (
             <div
               key={`${countryId}-${index}`} // Unique key combining countryId and index
               className={`flex flex-col justify-between p-2 w-[150px] rounded text-center ${
-                highlightFirstAndLast
-                  ? "bg-gray-700"
-                  : isFirstCountry
+                isFirstCountry
                   ? "bg-blue-500"
                   : isLastCountry
                   ? "bg-red-500"
@@ -45,4 +36,4 @@ const CountryList = ({
   );
 };
 
-export default CountryList;
+export default CorrectPathFlags;

@@ -1,6 +1,7 @@
 import React from "react";
 import ShareButton from "./ShareButton";
-import CountryList from "./CountryList";
+import CorrectPathFlags from "./CorrectPathFlags";
+import MistakeFlags from "./MistakeFlags";
 
 const GameEndModal = ({
   isOpen,
@@ -9,7 +10,8 @@ const GameEndModal = ({
   gameState,
   finishedLives,
   countryOrder,
-  mistakes,
+  preFirstGuessMistakes,
+  postFirstGuessMistakes,
   getCountryName,
   flagImageMap,
 }) => {
@@ -51,20 +53,17 @@ const GameEndModal = ({
           crosses={crosses}
         />
         {/* Correct Path */}
-        <CountryList
-          title="Correct Path"
+        <CorrectPathFlags
           countries={countryOrder}
           flagImageMap={flagImageMap}
           getCountryName={getCountryName}
-          highlightFirstAndLast={false}
         />
         {/* Mistakes */}
-        <CountryList
-          title="Mistakes"
-          countries={mistakes}
+        <MistakeFlags
+          preFirstGuessMistakes={preFirstGuessMistakes}
+          postFirstGuessMistakes={postFirstGuessMistakes}
           flagImageMap={flagImageMap}
           getCountryName={getCountryName}
-          highlightFirstAndLast={true}
         />
       </div>
     </div>

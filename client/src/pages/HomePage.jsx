@@ -18,7 +18,8 @@ const HomePage = () => {
   const [countryOrder, setCountryOrder] = useState([]);
   const [firstCountry, setFirstCountry] = useState("");
   const [lastCountry, setLastCountry] = useState("");
-  const [mistakes, setMistakes] = useState([]);
+  const [preFirstGuessMistakes, setPreFirstGuessMistakes] = useState([]);
+  const [postFirstGuessMistakes, setPostFirstGuessMistakes] = useState([]);
 
   // UI
   const [loading, setLoading] = useState(true);
@@ -86,12 +87,16 @@ const HomePage = () => {
   }, []);
 
   // Handles the modal when the game ends
-  const handleGameEnd = useCallback((state, lives, mistakes) => {
-    setGameState(state);
-    setFinishedLives(lives);
-    setMistakes(mistakes);
-    setShowGameEndModal(true);
-  }, []);
+  const handleGameEnd = useCallback(
+    (state, lives, preMistakes, postMistakes) => {
+      setGameState(state);
+      setFinishedLives(lives);
+      setPreFirstGuessMistakes(preMistakes);
+      setPostFirstGuessMistakes(postMistakes);
+      setShowGameEndModal(true);
+    },
+    []
+  );
 
   // Handles the modal when the player picks a new grid
   const handleGridPick = useCallback((newGridId) => {
@@ -156,7 +161,8 @@ const HomePage = () => {
               gameState={gameState}
               finishedLives={finishedLives}
               countryOrder={countryOrder}
-              mistakes={mistakes}
+              preFirstGuessMistakes={preFirstGuessMistakes}
+              postFirstGuessMistakes={postFirstGuessMistakes}
               getCountryName={getCountryName}
               flagImageMap={flagImageMap}
             />

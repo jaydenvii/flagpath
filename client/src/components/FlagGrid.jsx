@@ -14,7 +14,8 @@ const FlagGrid = ({
   const [firstCountryClicked, setFirstCountryClicked] = useState(false);
   const [correctClickedFlags, setCorrectClickedFlags] = useState([]);
   const [incorrectClickedFlags, setIncorrectClickedFlags] = useState([]);
-  const [mistakes, setMistakes] = useState([]);
+  const [preFirstGuessMistakes, setPreFirstGuessMistakes] = useState([]);
+  const [postFirstGuessMistakes, setPostFirstGuessMistakes] = useState([]);
   const [lives, setLives] = useState(3);
 
   // Updates currCountry when currCountryIndex changes
@@ -32,7 +33,12 @@ const FlagGrid = ({
   // Monitors for when the player won/lost
   useEffect(() => {
     if (gameState === "won" || gameState === "lost") {
-      onGameEnd(gameState, lives, mistakes);
+      onGameEnd(
+        gameState,
+        lives,
+        preFirstGuessMistakes,
+        postFirstGuessMistakes
+      );
     }
   }, [gameState]);
 
@@ -69,8 +75,13 @@ const FlagGrid = ({
     // Incorrect country
     else {
       setLives((prev) => prev - 1);
-      setMistakes((prev) => [...prev, id]);
       displayFlagAsIncorrect(id);
+
+      if (firstCountryClicked) {
+        setPostFirstGuessMistakes((prev) => [...prev, id]);
+      } else {
+        setPreFirstGuessMistakes((prev) => [...prev, id]);
+      }
     }
   };
 
