@@ -12,7 +12,7 @@ const FlagGrid = ({
   const [currCountry, setCurrCountry] = useState("");
   const [currCountryIndex, setCurrCountryIndex] = useState(-1);
   const [firstCountryClicked, setFirstCountryClicked] = useState(false);
-  const [clickedFlagColors, setClickedFlagColors] = useState({});
+  const [correctClickedFlags, setCorrectClickedFlags] = useState([]);
   const [mistakes, setMistakes] = useState([]);
   const [lives, setLives] = useState(3);
 
@@ -41,7 +41,7 @@ const FlagGrid = ({
 
     // Check for valid click
     if (
-      clickedFlagColors[id] || // If the flag has already been clicked
+      correctClickedFlags.includes(id) || // If the flag has already been clicked
       (firstCountryClicked && !isNeighbor(row, col)) || // If the flag is not a neighbor
       gameState === "won" || // If the game is already won
       gameState === "lost" // If the game is already lost
@@ -53,12 +53,12 @@ const FlagGrid = ({
     if (!firstCountryClicked && id === firstCountry) {
       setFirstCountryClicked(true);
       setCurrCountryIndex(0);
-      changeFlagColor(id, "green");
+      displayFlagAsCorrect(id);
     }
     // Subsequent correct countries
     else if (firstCountryClicked && id === countryOrder[currCountryIndex + 1]) {
       setCurrCountryIndex((prev) => prev + 1);
-      changeFlagColor(id, "green");
+      displayFlagAsCorrect(id);
 
       // Checks if the game is won
       if (id === lastCountry) {
@@ -69,8 +69,6 @@ const FlagGrid = ({
     else {
       setLives((prev) => prev - 1);
       setMistakes((prev) => [...prev, id]);
-
-      changeFlagColor(id, "red");
     }
   };
 
@@ -103,12 +101,9 @@ const FlagGrid = ({
     return null;
   };
 
-  // Changes the flags' colors to show a correct/incorrect guess
-  const changeFlagColor = (id, color) => {
-    setClickedFlagColors((prev) => ({
-      ...prev,
-      [id]: color,
-    }));
+  // Adds a green tint to a flag to show a correct guess
+  const displayFlagAsCorrect = (id) => {
+    setCorrectClickedFlags((prev) => [...prev, id]);
   };
 
   return (
@@ -143,16 +138,9 @@ const FlagGrid = ({
                         }`}
                       />
                     </div>
-                    {/* Green/red overlay */}
-                    {(clickedFlagColors[id] === "green" ||
-                      clickedFlagColors[id] === "red") && (
-                      <div
-                        className={`absolute top-0 left-0 w-full h-full bg-opacity-75 ${
-                          clickedFlagColors[id] === "green"
-                            ? "bg-green-500"
-                            : "bg-red-500"
-                        }`}
-                      ></div>
+                    {/* Green overlay */}
+                    {correctClickedFlags.includes(id) && (
+                      <div className="absolute top-0 left-0 w-full h-full bg-opacity-75 bg-green-500"></div>
                     )}
                   </div>
                 );
