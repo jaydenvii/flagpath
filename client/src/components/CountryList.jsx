@@ -9,7 +9,7 @@ const CountryList = ({
 }) => {
   return (
     <div>
-      <p className="text-2xl text-center mt-4 -2">{title}:</p>
+      <p className="text-2xl text-center mt-4">{title}:</p>
       <div className="flex justify-center flex-wrap gap-2">
         {countries.map((countryId, index) => {
           const isFirstCountry = !highlightFirstAndLast && index === 0;
@@ -18,7 +18,7 @@ const CountryList = ({
 
           return (
             <div
-              key={countryId}
+              key={`${countryId}-${index}`} // Unique key combining countryId and index
               className={`flex flex-col justify-between p-2 w-[150px] rounded text-center ${
                 highlightFirstAndLast
                   ? "bg-gray-700"
