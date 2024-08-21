@@ -22,7 +22,6 @@ const HomePage = () => {
     currCountry,
     flagImageMap,
     getCountryName,
-    handleGameEnd,
     handleGridPick,
     flagClick,
     isNeighbor,
@@ -36,12 +35,14 @@ const HomePage = () => {
   const [showGameEndModal, setShowGameEndModal] = useState(false);
   const [showGridPickModal, setShowGridPickModal] = useState(false);
 
+  // Loading finishes when the gridId has updated
   useEffect(() => {
     if (gridId !== -1) {
       setLoading(false);
     }
   }, [gridId]);
 
+  // Displays the game end modal when the game is over
   useEffect(() => {
     if (gameState === "won" || gameState === "lost") {
       setShowGameEndModal(true);
@@ -70,6 +71,7 @@ const HomePage = () => {
         ❓
       </button>
       {loading ? (
+        // Spinner
         <div className="flex flex-col justify-center items-center h-[65vh]">
           <Spinner loading={loading} />
           <p className="mt-2 text-2xl">Loading...</p>
@@ -88,19 +90,6 @@ const HomePage = () => {
             </span>
           </p>
           {/* Grid */}
-          {/* flagImageMap,
-  gridCountries,
-  currCountry,
-  currCountryIndex,
-  firstCountryClicked,
-  correctClickedCountries,
-  incorrectClickedCountries,
-  lives,
-  flagClick,
-  isNeighbor,
-  findPosition,
-  displayFlagAsCorrect,
-  displayFlagAsIncorrect, */}
           <FlagGrid
             key={gridId}
             flagImageMap={flagImageMap}

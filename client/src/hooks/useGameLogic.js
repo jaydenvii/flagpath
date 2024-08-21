@@ -4,26 +4,48 @@ import countryData from "../countries.json";
 
 const useGameLogic = () => {
   // General game
-  const [gameState, setGameState] = useState("running");
   const [finishedLives, setFinishedLives] = useState(3);
   const [totalGrids, setTotalGrids] = useState(0);
 
+  // Before the player does anything
+  const initialGridState = {
+    currCountry: "",
+    currCountryIndex: -1,
+    firstCountryClicked: false,
+    correctClickedFlags: [],
+    incorrectClickedFlags: [],
+    preFirstGuessMistakes: [],
+    postFirstGuessMistakes: [],
+    lives: 3,
+  };
+
   // Specific grid
+  const [gameState, setGameState] = useState("running");
   const [gridId, setGridId] = useState(-1);
   const [gridCountries, setGridCountries] = useState([[]]);
   const [countryOrder, setCountryOrder] = useState([]);
   const [firstCountry, setFirstCountry] = useState("");
   const [lastCountry, setLastCountry] = useState("");
-  const [preFirstGuessMistakes, setPreFirstGuessMistakes] = useState([]);
-  const [postFirstGuessMistakes, setPostFirstGuessMistakes] = useState([]);
-
-  // TAKEN FROM FLAGGRID.JSX
-  const [currCountry, setCurrCountry] = useState("");
-  const [currCountryIndex, setCurrCountryIndex] = useState(-1);
-  const [firstCountryClicked, setFirstCountryClicked] = useState(false);
-  const [correctClickedFlags, setCorrectClickedFlags] = useState([]);
-  const [incorrectClickedFlags, setIncorrectClickedFlags] = useState([]);
-  const [lives, setLives] = useState(3);
+  const [currCountry, setCurrCountry] = useState(initialGridState.currCountry);
+  const [currCountryIndex, setCurrCountryIndex] = useState(
+    initialGridState.currCountryIndex
+  );
+  const [firstCountryClicked, setFirstCountryClicked] = useState(
+    initialGridState.firstCountryClicked
+  );
+  const [correctClickedFlags, setCorrectClickedFlags] = useState(
+    initialGridState.correctClickedFlags
+  );
+  const [incorrectClickedFlags, setIncorrectClickedFlags] = useState(
+    initialGridState.incorrectClickedFlags
+  );
+  const [preFirstGuessMistakes, setPreFirstGuessMistakes] = useState(
+    initialGridState.preFirstGuessMistakes
+  );
+  const [postFirstGuessMistakes, setPostFirstGuessMistakes] = useState(
+    initialGridState.postFirstGuessMistakes
+  );
+  const [lives, setLives] = useState(initialGridState.lives);
 
   // Imports all flag images (vite)
   const flagImages = import.meta.glob("../assets/flags/*.png", {
@@ -44,6 +66,18 @@ const useGameLogic = () => {
     loadNewGrid(gridId);
   }, []);
 
+  // Updates currCountry when currCountryIndex changes
+  useEffect(() => {
+    setCurrCountry(countryOrder[currCountryIndex]);
+  }, [currCountryIndex]);
+
+  // Monitors for when the player hits 0 lives
+  useEffect(() => {
+    if (lives === 0) {
+      setGameState("lost");
+    }
+  }, [lives]);
+
   // Load all countries' data from countries.json and fetch grids from backend
   const loadNewGrid = (newGridId) => {
     // Fetch grid data from backend
@@ -61,6 +95,10 @@ const useGameLogic = () => {
         const dailyData = response.data[targetGridId];
 
         if (dailyData) {
+          // General reset
+          resetGame();
+
+          // Specific to the grid
           setGridId(targetGridId + 1);
           setGridCountries(dailyData.gridCountries);
           setCountryOrder(dailyData.countryOrder);
@@ -78,57 +116,38 @@ const useGameLogic = () => {
     fetchDailyData();
   };
 
+  // Non-specific reset of a grid
+  const resetGame = () => {
+    const {
+      currCountry,
+      currCountryIndex,
+      firstCountryClicked,
+      correctClickedFlags,
+      incorrectClickedFlags,
+      preFirstGuessMistakes,
+      postFirstGuessMistakes,
+      lives,
+    } = initialGridState;
+
+    setCurrCountry(currCountry);
+    setCurrCountryIndex(currCountryIndex);
+    setFirstCountryClicked(firstCountryClicked);
+    setCorrectClickedFlags(correctClickedFlags);
+    setIncorrectClickedFlags(incorrectClickedFlags);
+    setPreFirstGuessMistakes(preFirstGuessMistakes);
+    setPostFirstGuessMistakes(postFirstGuessMistakes);
+    setLives(lives);
+  };
+
   // Gets the name of the country from the id
   const getCountryName = useCallback((countryId) => {
     return countryData[countryId]?.name || "Unknown Country";
   }, []);
 
-  // Handles the modal when the game ends
-  const handleGameEnd = useCallback(
-    (state, lives, preMistakes, postMistakes) => {
-      setGameState(state);
-      setFinishedLives(lives);
-      setPreFirstGuessMistakes(preMistakes);
-      setPostFirstGuessMistakes(postMistakes);
-    },
-    []
-  );
-
   // Handles the modal when the player picks a new grid
   const handleGridPick = useCallback((newGridId) => {
     loadNewGrid(newGridId);
-    resetGame();
   }, []);
-
-  // Resets the game for a new grid
-  const resetGame = () => {
-    setGameState("running");
-  };
-
-  // TAKEN FROM FLAGGRID.JSX
-  // Updates currCountry when currCountryIndex changes
-  useEffect(() => {
-    setCurrCountry(countryOrder[currCountryIndex]);
-  }, [currCountryIndex]);
-
-  // Monitors for when the player hits 0 lives
-  useEffect(() => {
-    if (lives === 0) {
-      setGameState("lost");
-    }
-  }, [lives]);
-
-  // Monitors for when the player won/lost
-  useEffect(() => {
-    if (gameState === "won" || gameState === "lost") {
-      handleGameEnd(
-        gameState,
-        lives,
-        preFirstGuessMistakes,
-        postFirstGuessMistakes
-      );
-    }
-  }, [gameState]);
 
   // Handles game progression by clicking on flags
   const flagClick = (row, col) => {
@@ -232,7 +251,6 @@ const useGameLogic = () => {
     currCountry,
     flagImageMap,
     getCountryName,
-    handleGameEnd,
     handleGridPick,
     flagClick,
     isNeighbor,
