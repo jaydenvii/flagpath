@@ -8,6 +8,7 @@ const useGameLogic = () => {
 
   // Before the player does anything
   const initialGridState = {
+    gameState: "running",
     currCountry: "",
     currCountryIndex: -1,
     firstCountryClicked: false,
@@ -19,7 +20,7 @@ const useGameLogic = () => {
   };
 
   // Specific grid
-  const [gameState, setGameState] = useState("running");
+  const [gameState, setGameState] = useState(initialGridState.gameState);
   const [gridId, setGridId] = useState(-1);
   const [gridCountries, setGridCountries] = useState([[]]);
   const [countryOrder, setCountryOrder] = useState([]);
@@ -118,6 +119,7 @@ const useGameLogic = () => {
   // Non-specific reset of a grid
   const resetGame = () => {
     const {
+      gameState,
       currCountry,
       currCountryIndex,
       firstCountryClicked,
@@ -128,6 +130,7 @@ const useGameLogic = () => {
       lives,
     } = initialGridState;
 
+    setGameState(gameState);
     setCurrCountry(currCountry);
     setCurrCountryIndex(currCountryIndex);
     setFirstCountryClicked(firstCountryClicked);
