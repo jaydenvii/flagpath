@@ -4,7 +4,6 @@ import countryData from "../countries.json";
 
 const useGameLogic = () => {
   // General game
-  const [finishedLives, setFinishedLives] = useState(3);
   const [totalGrids, setTotalGrids] = useState(0);
 
   // Before the player does anything
@@ -238,7 +237,6 @@ const useGameLogic = () => {
 
   return {
     gameState,
-    finishedLives,
     totalGrids,
     gridId,
     gridCountries,

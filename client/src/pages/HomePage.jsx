@@ -9,7 +9,6 @@ import useGameLogic from "../hooks/useGameLogic";
 const HomePage = () => {
   const {
     gameState,
-    finishedLives,
     totalGrids,
     gridId,
     gridCountries,
@@ -116,7 +115,7 @@ const HomePage = () => {
               onClose={() => setShowGameEndModal(false)}
               gridId={gridId}
               gameState={gameState}
-              finishedLives={finishedLives}
+              lives={lives}
               countryOrder={countryOrder}
               preFirstGuessMistakes={preFirstGuessMistakes}
               postFirstGuessMistakes={postFirstGuessMistakes}

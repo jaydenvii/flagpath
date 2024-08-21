@@ -8,7 +8,7 @@ const GameEndModal = ({
   onClose,
   gridId,
   gameState,
-  finishedLives,
+  lives,
   countryOrder,
   preFirstGuessMistakes,
   postFirstGuessMistakes,
@@ -19,8 +19,8 @@ const GameEndModal = ({
 
   // Lives left
   const maxLives = 3;
-  const checkMarks = "✅".repeat(finishedLives);
-  const crosses = "❌".repeat(maxLives - finishedLives);
+  const checkMarks = "✅".repeat(lives);
+  const crosses = "❌".repeat(maxLives - lives);
 
   return (
     <div className="bg-gray-800 fixed inset-0 bg-opacity-70 flex items-center justify-center overflow-auto">
@@ -42,13 +42,13 @@ const GameEndModal = ({
         </p>
         <p className="text-xl text-center">
           {gameState === "won"
-            ? `You won with ${finishedLives}/3 lives!`
+            ? `You won with ${lives}/3 lives!`
             : "You lost all of your lives."}
         </p>
         {/* Share button */}
         <ShareButton
           gridId={gridId}
-          finishedLives={finishedLives}
+          lives={lives}
           checkMarks={checkMarks}
           crosses={crosses}
         />
