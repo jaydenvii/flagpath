@@ -28,6 +28,14 @@ const HomePage = () => {
   const [showGameEndModal, setShowGameEndModal] = useState(false);
   const [showGridPickModal, setShowGridPickModal] = useState(false);
 
+  // TAKEN FROM FLAGGRID.JSX
+  const [currCountry, setCurrCountry] = useState("");
+  const [currCountryIndex, setCurrCountryIndex] = useState(-1);
+  const [firstCountryClicked, setFirstCountryClicked] = useState(false);
+  const [correctClickedFlags, setCorrectClickedFlags] = useState([]);
+  const [incorrectClickedFlags, setIncorrectClickedFlags] = useState([]);
+  const [lives, setLives] = useState(3);
+
   // Imports all flag images (vite)
   const flagImages = import.meta.glob("../assets/flags/*.png", {
     eager: true,
@@ -112,6 +120,118 @@ const HomePage = () => {
     setGameState("running");
   };
 
+  // TAKEN FROM FLAGGRID.JSX
+  // Updates currCountry when currCountryIndex changes
+  useEffect(() => {
+    setCurrCountry(countryOrder[currCountryIndex]);
+  }, [currCountryIndex]);
+
+  // Monitors for when the player hits 0 lives
+  useEffect(() => {
+    if (lives === 0) {
+      setGameState("lost");
+    }
+  }, [lives]);
+
+  // Monitors for when the player won/lost
+  useEffect(() => {
+    if (gameState === "won" || gameState === "lost") {
+      handleGameEnd(
+        gameState,
+        lives,
+        preFirstGuessMistakes,
+        postFirstGuessMistakes
+      );
+    }
+  }, [gameState]);
+
+  // Handles game progression by clicking on flags
+  const flagClick = (row, col) => {
+    const id = gridCountries[row][col];
+
+    // Check for valid click
+    if (
+      correctClickedFlags.includes(id) || // If the flag has already been clicked
+      (firstCountryClicked && !isNeighbor(row, col)) || // If the flag is not a neighbor
+      gameState === "won" || // If the game is already won
+      gameState === "lost" // If the game is already lost
+    ) {
+      return;
+    }
+
+    // First correct country
+    if (!firstCountryClicked && id === firstCountry) {
+      setFirstCountryClicked(true);
+      setCurrCountryIndex(0);
+      displayFlagAsCorrect(id);
+    }
+    // Subsequent correct countries
+    else if (firstCountryClicked && id === countryOrder[currCountryIndex + 1]) {
+      setCurrCountryIndex((prev) => prev + 1);
+      displayFlagAsCorrect(id);
+
+      // Checks if the game is won
+      if (id === lastCountry) {
+        setGameState("won");
+      }
+    }
+    // Incorrect country
+    else {
+      setLives((prev) => prev - 1);
+      displayFlagAsIncorrect(id);
+
+      if (firstCountryClicked) {
+        setPostFirstGuessMistakes((prev) => [...prev, id]);
+      } else {
+        setPreFirstGuessMistakes((prev) => [...prev, id]);
+      }
+    }
+  };
+
+  // Checks if the clicked flag is adjacent to the current flag on the grid
+  const isNeighbor = (row, col) => {
+    const currPosition = findPosition(currCountryIndex);
+    if (!currPosition) return false;
+
+    const [currRow, currCol] = currPosition;
+
+    const neighbors = [
+      [currRow - 1, currCol], // Above
+      [currRow + 1, currCol], // Below
+      [currRow, currCol - 1], // Left
+      [currRow, currCol + 1], // Right
+    ];
+
+    return neighbors.some(([r, c]) => r === row && c === col);
+  };
+
+  // Finds the position of a country in the grid
+  const findPosition = (countryId) => {
+    for (let row = 0; row < gridCountries.length; row++) {
+      for (let col = 0; col < gridCountries[row].length; col++) {
+        if (gridCountries[row][col] === countryOrder[countryId]) {
+          return [row, col];
+        }
+      }
+    }
+    return null;
+  };
+
+  // Adds a green tint to a flag to show a correct guess
+  const displayFlagAsCorrect = (id) => {
+    setCorrectClickedFlags((prev) => [...prev, id]);
+  };
+
+  // Adds a red tint to a flag for 1 second to show an incorrect guess
+  const displayFlagAsIncorrect = (id) => {
+    setIncorrectClickedFlags((prev) => [...prev, id]);
+    setTimeout(() => {
+      setIncorrectClickedFlags((prev) =>
+        prev.filter((flagId) => flagId !== id)
+      );
+    }, 1000);
+  };
+
   return (
     <div>
       {/* Header */}
@@ -152,14 +272,30 @@ const HomePage = () => {
             </span>
           </p>
           {/* Grid */}
+          {/* flagImageMap,
+  gridCountries,
+  currCountry,
+  currCountryIndex,
+  firstCountryClicked,
+  correctClickedCountries,
+  incorrectClickedCountries,
+  lives,
+  flagClick,
+  isNeighbor,
+  findPosition,
+  displayFlagAsCorrect,
+  displayFlagAsIncorrect, */}
           <FlagGrid
             key={gridId}
             flagImageMap={flagImageMap}
+            gameState={gameState}
             gridCountries={gridCountries}
-            countryOrder={countryOrder}
-            firstCountry={firstCountry}
-            lastCountry={lastCountry}
-            onGameEnd={handleGameEnd}
+            currCountry={currCountry}
+            lives={lives}
+            correctClickedFlags={correctClickedFlags}
+            incorrectClickedFlags={incorrectClickedFlags}
+            flagClick={flagClick}
+            isNeighbor={isNeighbor}
           />
           {/* Tutorial modal */}
           {showTutorialModal && (
