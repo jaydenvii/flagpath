@@ -7,7 +7,7 @@ const GameEndModal = ({
   isOpen,
   onClose,
   gridId,
-  gameState,
+  gameProgress,
   lives,
   countryOrder,
   preFirstGuessMistakes,
@@ -41,7 +41,7 @@ const GameEndModal = ({
           {crosses}
         </p>
         <p className="text-xl text-center">
-          {gameState === "won"
+          {gameProgress === "won"
             ? `You won with ${lives}/3 lives!`
             : "You lost all of your lives."}
         </p>

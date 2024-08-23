@@ -8,25 +8,29 @@ import useGameLogic from "../hooks/useGameLogic";
 
 const HomePage = () => {
   const {
-    gameState,
-    totalGrids,
+    gameProgress,
     gridId,
+    currCountry,
+    currCountryIndex,
+    firstCountryClicked,
+    correctClickedFlags,
+    incorrectClickedFlags,
+    preFirstGuessMistakes,
+    postFirstGuessMistakes,
+    lives,
+    totalGrids,
     gridCountries,
     countryOrder,
     firstCountry,
     lastCountry,
-    preFirstGuessMistakes,
-    postFirstGuessMistakes,
-    lives,
-    currCountry,
     flagImageMap,
     getCountryName,
     handleGridPick,
     flagClick,
     isNeighbor,
-    correctClickedFlags,
-    incorrectClickedFlags,
   } = useGameLogic(-1);
+
+  console.log(gameProgress);
 
   // UI
   const [loading, setLoading] = useState(true);
@@ -43,10 +47,10 @@ const HomePage = () => {
 
   // Displays the game end modal when the game is over
   useEffect(() => {
-    if (gameState === "won" || gameState === "lost") {
+    if (gameProgress === "won" || gameProgress === "lost") {
       setShowGameEndModal(true);
     }
-  }, [gameState]);
+  }, [gameProgress]);
 
   return (
     <div>
@@ -92,7 +96,7 @@ const HomePage = () => {
           <FlagGrid
             key={gridId}
             flagImageMap={flagImageMap}
-            gameState={gameState}
+            gameProgress={gameProgress}
             gridCountries={gridCountries}
             currCountry={currCountry}
             lives={lives}
@@ -114,7 +118,7 @@ const HomePage = () => {
               isOpen={showGameEndModal}
               onClose={() => setShowGameEndModal(false)}
               gridId={gridId}
-              gameState={gameState}
+              gameProgress={gameProgress}
               lives={lives}
               countryOrder={countryOrder}
               preFirstGuessMistakes={preFirstGuessMistakes}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const FlagGrid = ({
   flagImageMap,
-  gameState,
+  gameProgress,
   gridCountries,
   currCountry,
   lives,
@@ -37,7 +37,7 @@ const FlagGrid = ({
                         alt=""
                         className={`w-full h-full object-cover ${
                           (currCountry && !isAdjacent && id !== currCountry) || // Dims all countries that are not adjacent
-                          (isAdjacent && gameState != "running") // Dims adjacent countries if the game is over
+                          (isAdjacent && gameProgress != "running") // Dims adjacent countries if the game is over
                             ? "opacity-40"
                             : ""
                         }`}

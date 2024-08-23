@@ -61,7 +61,7 @@ const useGameLogic = () => {
     if (gameState.lives === 0) {
       setGameState((prevState) => ({
         ...prevState,
-        gameState: "lost",
+        gameProgress: "lost",
       }));
     }
   }, [gameState.lives]);
@@ -151,7 +151,7 @@ const useGameLogic = () => {
       if (id === lastCountry) {
         setGameState((prevState) => ({
           ...prevState,
-          gameState: "won",
+          gameProgress: "won",
         }));
       }
     } else {
