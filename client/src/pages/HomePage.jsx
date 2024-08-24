@@ -30,8 +30,6 @@ const HomePage = () => {
     isNeighbor,
   } = useGameLogic(-1);
 
-  console.log(gameProgress);
-
   // UI
   const [loading, setLoading] = useState(true);
   const [showTutorialModal, setShowTutorialModal] = useState(false);

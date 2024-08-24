@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import Axios from "axios";
+import useLocalStorage from "./useLocalStorage";
 import countryData from "../countries.json";
 
 const useGameLogic = () => {
@@ -22,6 +23,7 @@ const useGameLogic = () => {
 
   // Combined state for the game
   const [gameState, setGameState] = useState(initialState);
+  const [playedGrids, setPlayedGrids] = useLocalStorage("playedGrids", []);
 
   // Additional state
   const [gridCountries, setGridCountries] = useState([[]]);
