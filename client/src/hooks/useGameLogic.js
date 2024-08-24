@@ -45,6 +45,11 @@ const useGameLogic = () => {
     }, {});
   }, []);
 
+  // // TODO: remove, testing
+  // useEffect(() => {
+  //   console.log("playedGrids:", playedGrids);
+  // }, [playedGrids]);
+
   // Loads all data on reload
   useEffect(() => {
     loadNewGrid(gameState.gridId);
@@ -52,39 +57,50 @@ const useGameLogic = () => {
 
   // Updates currCountry when currCountryIndex changes
   useEffect(() => {
-    handleGameStateChange(
-      "currCountry",
-      countryOrder[gameState.currCountryIndex] || ""
-    );
+    setGameState((prevState) => ({
+      ...prevState,
+      currCountry: countryOrder[gameState.currCountryIndex] || "",
+    }));
   }, [gameState.currCountryIndex, countryOrder]);
 
   // Monitors for when the player hits 0 lives
   useEffect(() => {
     if (gameState.lives === 0) {
-      handleGameStateChange("gameProgress", "lost");
+      setGameState((prevState) => ({
+        ...prevState,
+        gameProgress: "lost",
+      }));
     }
   }, [gameState.lives]);
 
   // Handle value changes for the current grid
-  const handleGameStateChange = (key, updateFn) => {
-    setGameState((prevState) => {
-      // Checks if the updateFn is a callback or a plain value
-      const newValue =
-        typeof updateFn === "function" ? updateFn(prevState[key]) : updateFn;
+  // const handleGameStateChange = (key, updateFn) => {
+  //   setGameState((prevState) => {
+  //     // Checks if the updateFn is a callback or a plain value
+  //     const newValue =
+  //       typeof updateFn === "function" ? updateFn(prevState[key]) : updateFn;
 
-      const updatedGameState = { ...prevState, [key]: newValue };
+  //     const updatedGameState = { ...prevState, [key]: newValue };
 
-      setPlayedGrids((prev) =>
-        prev.map((grid) =>
-          grid.gridId === updatedGameState.gridId
-            ? { ...grid, [key]: newValue }
-            : grid
-        )
-      );
+  //     setPlayedGrids((prev) => {
+  //       const updatedGrids = prev.map((grid) => {
+  //         const updatedGrid =
+  //           grid.gridId === updatedGameState.gridId
+  //             ? { ...grid, [key]: newValue }
+  //             : grid;
 
-      return updatedGameState;
-    });
-  };
+  //         console.log("Updating grid with ID:", grid.gridId, "->", updatedGrid);
+  //         return updatedGrid;
+  //       });
+
+  //       console.log("Final updated grids:", updatedGrids);
+
+  //       return updatedGrids;
+  //     });
+
+  //     return updatedGameState;
+  //   });
+  // };
 
   // Load all countries' data from countries.json and fetch grids from backend
   const loadNewGrid = (newGridId) => {
@@ -103,12 +119,10 @@ const useGameLogic = () => {
         if (dailyData) {
           resetGame();
 
-          const updatedGameState = {
-            ...gameState,
+          setGameState((prevState) => ({
+            ...prevState,
             gridId: targetGridId,
-          };
-
-          setGameState(updatedGameState);
+          }));
           setGridCountries(dailyData.gridCountries);
           setCountryOrder(dailyData.countryOrder);
           setFirstCountry(dailyData.countryOrder[0]);
@@ -120,13 +134,45 @@ const useGameLogic = () => {
           // Add the entire updated gameState to playedGrids
           setPlayedGrids((prevPlayedGrids) => {
             const isGridAlreadyPlayed = prevPlayedGrids.some(
-              (grid) => grid.gridId === updatedGameState.gridId
+              (grid) => grid.gridId === targetGridId
             );
+
             if (!isGridAlreadyPlayed) {
-              return [...prevPlayedGrids, updatedGameState];
+              const newGridState = {
+                ...gameState,
+                gridId: targetGridId,
+              };
+              return [...prevPlayedGrids, newGridState];
             }
+
             return prevPlayedGrids;
           });
+
+          // // Add the entire updated gameState to playedGrids
+          // setPlayedGrids((prevPlayedGrids) => {
+          //   // console.log("Previous played grids:", prevPlayedGrids);
+          //   // console.log("Current grid being played:", updatedGameState.gridId);
+
+          //   const isGridAlreadyPlayed = prevPlayedGrids.some(
+          //     (grid) => grid.gridId === updatedGameState.gridId
+          //   );
+
+          //   if (!isGridAlreadyPlayed) {
+          //     // console.log(
+          //     //   "loadNewGrid: grid has not been played",
+          //     //   updatedGameState.gridId
+          //     // );
+          //     const updatedPlayedGrids = [...prevPlayedGrids, updatedGameState];
+          //     // console.log("Updated played grids:", updatedPlayedGrids);
+          //     return updatedPlayedGrids;
+          //   }
+
+          //   // console.log(
+          //   //   "loadNewGrid: grid has been played",
+          //   //   updatedGameState.gridId
+          //   // );
+          //   return prevPlayedGrids;
+          // });
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -138,7 +184,7 @@ const useGameLogic = () => {
 
   // Non-specific reset of a grid
   const resetGame = () => {
-    setGameState(initialState);
+    // setGameState(initialState);
   };
 
   // Gets the name of the country from the id
@@ -165,30 +211,45 @@ const useGameLogic = () => {
     }
 
     if (!gameState.firstCountryClicked && id === firstCountry) {
-      handleGameStateChange("firstCountryClicked", true);
-      handleGameStateChange("currCountryIndex", 0);
+      setGameState((prevState) => ({
+        ...prevState,
+        firstCountryClicked: true,
+        currCountryIndex: 0,
+      }));
       displayFlagAsCorrect(id);
     } else if (
       gameState.firstCountryClicked &&
       id === countryOrder[gameState.currCountryIndex + 1]
     ) {
-      handleGameStateChange("currCountryIndex", (prev) => prev + 1);
+      setGameState((prevState) => ({
+        ...prevState,
+        currCountryIndex: prevState.currCountryIndex + 1,
+      }));
       displayFlagAsCorrect(id);
 
       if (id === lastCountry) {
-        handleGameStateChange("gameProgress", "won");
+        setGameState((prevState) => ({
+          ...prevState,
+          gameProgress: "won",
+        }));
       }
     } else {
-      handleGameStateChange("lives", (prev) => prev - 1);
+      setGameState((prevState) => ({
+        ...prevState,
+        lives: prevState.lives - 1,
+      }));
       displayFlagAsIncorrect(id);
 
       if (gameState.firstCountryClicked) {
-        handleGameStateChange("postFirstGuessMistakes", (prev) => [
-          ...prev,
-          id,
-        ]);
+        setGameState((prevState) => ({
+          ...prevState,
+          postFirstGuessMistakes: [...prevState.postFirstGuessMistakes, id],
+        }));
       } else {
-        handleGameStateChange("preFirstGuessMistakes", (prev) => [...prev, id]);
+        setGameState((prevState) => ({
+          ...prevState,
+          preFirstGuessMistakes: [...prevState.preFirstGuessMistakes, id],
+        }));
       }
     }
   };
@@ -224,16 +285,25 @@ const useGameLogic = () => {
 
   // Adds a green tint to a flag to show a correct guess
   const displayFlagAsCorrect = (id) => {
-    handleGameStateChange("correctClickedFlags", (prev) => [...prev, id]);
+    setGameState((prevState) => ({
+      ...prevState,
+      correctClickedFlags: [...prevState.correctClickedFlags, id],
+    }));
   };
 
   // Adds a red tint to a flag for 1 second to show an incorrect guess
   const displayFlagAsIncorrect = (id) => {
-    handleGameStateChange("incorrectClickedFlags", (prev) => [...prev, id]);
+    setGameState((prevState) => ({
+      ...prevState,
+      incorrectClickedFlags: [...prevState.incorrectClickedFlags, id],
+    }));
     setTimeout(() => {
-      handleGameStateChange("incorrectClickedFlags", (prev) =>
-        prev.filter((flagId) => flagId !== id)
-      );
+      setGameState((prevState) => ({
+        ...prevState,
+        incorrectClickedFlags: prevState.incorrectClickedFlags.filter(
+          (flagId) => flagId !== id
+        ),
+      }));
     }, 1000);
   };
 
