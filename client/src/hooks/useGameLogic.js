@@ -52,21 +52,44 @@ const useGameLogic = () => {
 
   // Updates currCountry when currCountryIndex changes
   useEffect(() => {
-    setGameState((prevState) => ({
-      ...prevState,
-      currCountry: countryOrder[gameState.currCountryIndex] || "",
-    }));
+    handleGameStateChange(
+      "currCountry",
+      countryOrder[gameState.currCountryIndex] || ""
+    );
   }, [gameState.currCountryIndex, countryOrder]);
+
+  //TODO: remove, testing
+  useEffect(() => {
+    console.log(gameState);
+  }, [gameState]);
 
   // Monitors for when the player hits 0 lives
   useEffect(() => {
     if (gameState.lives === 0) {
-      setGameState((prevState) => ({
-        ...prevState,
-        gameProgress: "lost",
-      }));
+      handleGameStateChange("gameProgress", "lost");
     }
   }, [gameState.lives]);
+
+  // Handle value changes for the current grid
+  const handleGameStateChange = (key, updateFn) => {
+    setGameState((prevState) => {
+      // Checks if the updateFn is a callback or a plain value
+      const newValue =
+        typeof updateFn === "function" ? updateFn(prevState[key]) : updateFn;
+
+      const updatedGameState = { ...prevState, [key]: newValue };
+
+      setPlayedGrids((prev) =>
+        prev.map((grid) =>
+          grid.gridId === updatedGameState.gridId
+            ? { ...grid, [key]: newValue }
+            : grid
+        )
+      );
+
+      return updatedGameState;
+    });
+  };
 
   // Load all countries' data from countries.json and fetch grids from backend
   const loadNewGrid = (newGridId) => {
@@ -85,10 +108,12 @@ const useGameLogic = () => {
         if (dailyData) {
           resetGame();
 
-          setGameState((prevState) => ({
-            ...prevState,
+          const updatedGameState = {
+            ...gameState,
             gridId: targetGridId + 1,
-          }));
+          };
+
+          setGameState(updatedGameState);
           setGridCountries(dailyData.gridCountries);
           setCountryOrder(dailyData.countryOrder);
           setFirstCountry(dailyData.countryOrder[0]);
@@ -96,6 +121,17 @@ const useGameLogic = () => {
             dailyData.countryOrder[dailyData.countryOrder.length - 1]
           );
           setTotalGrids(response.data.length);
+
+          // Add the entire updated gameState to playedGrids
+          setPlayedGrids((prevPlayedGrids) => {
+            const isGridAlreadyPlayed = prevPlayedGrids.some(
+              (grid) => grid.gridId === updatedGameState.gridId
+            );
+            if (!isGridAlreadyPlayed) {
+              return [...prevPlayedGrids, updatedGameState];
+            }
+            return prevPlayedGrids;
+          });
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -134,45 +170,30 @@ const useGameLogic = () => {
     }
 
     if (!gameState.firstCountryClicked && id === firstCountry) {
-      setGameState((prevState) => ({
-        ...prevState,
-        firstCountryClicked: true,
-        currCountryIndex: 0,
-      }));
+      handleGameStateChange("firstCountryClicked", true);
+      handleGameStateChange("currCountryIndex", 0);
       displayFlagAsCorrect(id);
     } else if (
       gameState.firstCountryClicked &&
       id === countryOrder[gameState.currCountryIndex + 1]
     ) {
-      setGameState((prevState) => ({
-        ...prevState,
-        currCountryIndex: prevState.currCountryIndex + 1,
-      }));
+      handleGameStateChange("currCountryIndex", (prev) => prev + 1);
       displayFlagAsCorrect(id);
 
       if (id === lastCountry) {
-        setGameState((prevState) => ({
-          ...prevState,
-          gameProgress: "won",
-        }));
+        handleGameStateChange("gameProgress", "won");
       }
     } else {
-      setGameState((prevState) => ({
-        ...prevState,
-        lives: prevState.lives - 1,
-      }));
+      handleGameStateChange("lives", (prev) => prev - 1);
       displayFlagAsIncorrect(id);
 
       if (gameState.firstCountryClicked) {
-        setGameState((prevState) => ({
-          ...prevState,
-          postFirstGuessMistakes: [...prevState.postFirstGuessMistakes, id],
-        }));
+        handleGameStateChange("postFirstGuessMistakes", (prev) => [
+          ...prev,
+          id,
+        ]);
       } else {
-        setGameState((prevState) => ({
-          ...prevState,
-          preFirstGuessMistakes: [...prevState.preFirstGuessMistakes, id],
-        }));
+        handleGameStateChange("preFirstGuessMistakes", (prev) => [...prev, id]);
       }
     }
   };
@@ -208,25 +229,16 @@ const useGameLogic = () => {
 
   // Adds a green tint to a flag to show a correct guess
   const displayFlagAsCorrect = (id) => {
-    setGameState((prevState) => ({
-      ...prevState,
-      correctClickedFlags: [...prevState.correctClickedFlags, id],
-    }));
+    handleGameStateChange("correctClickedFlags", (prev) => [...prev, id]);
   };
 
   // Adds a red tint to a flag for 1 second to show an incorrect guess
   const displayFlagAsIncorrect = (id) => {
-    setGameState((prevState) => ({
-      ...prevState,
-      incorrectClickedFlags: [...prevState.incorrectClickedFlags, id],
-    }));
+    handleGameStateChange("incorrectClickedFlags", (prev) => [...prev, id]);
     setTimeout(() => {
-      setGameState((prevState) => ({
-        ...prevState,
-        incorrectClickedFlags: prevState.incorrectClickedFlags.filter(
-          (flagId) => flagId !== id
-        ),
-      }));
+      handleGameStateChange("incorrectClickedFlags", (prev) =>
+        prev.filter((flagId) => flagId !== id)
+      );
     }, 1000);
   };
 
