@@ -60,7 +60,7 @@ const HomePage = () => {
             className="ml-4 text-yellow-300 hover:text-cyan-300 underline cursor-pointer"
             onClick={() => setShowGridPickModal(true)}
           >
-            #{gridId}
+            #{gridId + 1}
           </span>
         )}
       </h1>

@@ -58,11 +58,6 @@ const useGameLogic = () => {
     );
   }, [gameState.currCountryIndex, countryOrder]);
 
-  //TODO: remove, testing
-  useEffect(() => {
-    console.log(gameState);
-  }, [gameState]);
-
   // Monitors for when the player hits 0 lives
   useEffect(() => {
     if (gameState.lives === 0) {
@@ -110,7 +105,7 @@ const useGameLogic = () => {
 
           const updatedGameState = {
             ...gameState,
-            gridId: targetGridId + 1,
+            gridId: targetGridId,
           };
 
           setGameState(updatedGameState);
