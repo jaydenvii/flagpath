@@ -35,6 +35,7 @@ const HomePage = () => {
   const [showTutorialModal, setShowTutorialModal] = useState(false);
   const [showGameEndModal, setShowGameEndModal] = useState(false);
   const [showGridPickModal, setShowGridPickModal] = useState(false);
+  const [showSummaryButton, setShowSummaryButton] = useState(false);
 
   // Loading finishes when the gridId has updated
   useEffect(() => {
@@ -43,10 +44,13 @@ const HomePage = () => {
     }
   }, [gridId]);
 
-  // Displays the game end modal when the game is over
+  // Displays the game end modal and summary button
   useEffect(() => {
     if (gameProgress === "won" || gameProgress === "lost") {
       setShowGameEndModal(true);
+      setShowSummaryButton(true);
+    } else {
+      setShowSummaryButton(false);
     }
   }, [gameProgress]);
 
@@ -69,13 +73,24 @@ const HomePage = () => {
           </span>
         )}
       </h1>
-      {/* Tutorial Button */}
+      {/* Tutorial button */}
       <button
         className="absolute top-4 right-4 px-1 py-1 bg-gray-600 hover:bg-slate-400 text-2xl rounded"
         onClick={() => setShowTutorialModal(true)}
       >
         ❓
       </button>
+      {/* Show summary button */}
+      {showSummaryButton && (
+        <div className="flex justify-center">
+          <button
+            className="-mt-4 -mb-6 px-3 bg-gray-500 hover:bg-slate-400 text-lg rounded"
+            onClick={() => setShowGameEndModal(true)}
+          >
+            Show Summary
+          </button>
+        </div>
+      )}
       {loading ? (
         // Spinner
         <div className="flex flex-col justify-center items-center h-[65vh]">
