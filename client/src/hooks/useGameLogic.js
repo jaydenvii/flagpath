@@ -76,6 +76,29 @@ const useGameLogic = () => {
     }
   }, [gameState.lives]);
 
+  // Changes the playedGrids array everytime gameState changes
+  useEffect(() => {
+    if (gameState && playedGrids.length > 0) {
+      setPlayedGrids((prevGrids) =>
+        prevGrids.map((grid) => {
+          if (grid.gridId === gameState.gridId) {
+            const updatedGrid = { ...grid };
+
+            // Iterates over each key in gameState and compare with grid
+            Object.keys(gameState).forEach((key) => {
+              if (gameState[key] !== grid[key]) {
+                updatedGrid[key] = gameState[key];
+              }
+            });
+
+            return updatedGrid;
+          }
+          return grid;
+        })
+      );
+    }
+  }, [gameState]);
+
   // Handle value changes for the current grid
   // const handleGameStateChange = (key, updateFn) => {
   //   setGameState((prevState) => {
