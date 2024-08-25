@@ -50,6 +50,11 @@ const HomePage = () => {
     }
   }, [gameProgress]);
 
+  // Hides game end modal when changing grids
+  useEffect(() => {
+    setShowGameEndModal(false);
+  }, [gridId]);
+
   return (
     <div>
       {/* Header */}
