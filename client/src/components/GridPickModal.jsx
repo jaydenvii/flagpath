@@ -20,7 +20,9 @@ const GridPickModal = ({ isOpen, onClose, totalGrids, onGridPick }) => {
           <div
             key={index}
             className="text-xl text-yellow-300 hover:text-cyan-300 hover:underline cursor-pointer"
-            onClick={() => onGridPick(totalGrids - 1 - index)}
+            onClick={() => {
+              onGridPick(totalGrids - 1 - index);
+            }}
           >
             FlagPath #{totalGrids - index}
           </div>

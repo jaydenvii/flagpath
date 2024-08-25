@@ -99,35 +99,6 @@ const useGameLogic = () => {
     }
   }, [gameState]);
 
-  // Handle value changes for the current grid
-  // const handleGameStateChange = (key, updateFn) => {
-  //   setGameState((prevState) => {
-  //     // Checks if the updateFn is a callback or a plain value
-  //     const newValue =
-  //       typeof updateFn === "function" ? updateFn(prevState[key]) : updateFn;
-
-  //     const updatedGameState = { ...prevState, [key]: newValue };
-
-  //     setPlayedGrids((prev) => {
-  //       const updatedGrids = prev.map((grid) => {
-  //         const updatedGrid =
-  //           grid.gridId === updatedGameState.gridId
-  //             ? { ...grid, [key]: newValue }
-  //             : grid;
-
-  //         console.log("Updating grid with ID:", grid.gridId, "->", updatedGrid);
-  //         return updatedGrid;
-  //       });
-
-  //       console.log("Final updated grids:", updatedGrids);
-
-  //       return updatedGrids;
-  //     });
-
-  //     return updatedGameState;
-  //   });
-  // };
-
   // Fetches all grids from the database
   const fetchDailyData = async () => {
     try {
@@ -185,9 +156,9 @@ const useGameLogic = () => {
   }, []);
 
   // Handles the modal when the player picks a new grid
-  const handleGridPick = useCallback((newGridId) => {
+  const handleGridPick = (newGridId) => {
     loadNewGrid(newGridId);
-  }, []);
+  };
 
   // Handles game progression by clicking on flags
   const flagClick = (row, col) => {
