@@ -108,16 +108,29 @@ const useGameLogic = () => {
 
       setTotalGrids(dailyDataArray.length);
 
-      setPlayedGrids(
-        dailyDataArray.map((data, index) => ({
-          ...initialState,
-          gridId: index,
-          gridCountries: data.gridCountries,
-          countryOrder: data.countryOrder,
-          firstCountry: data.countryOrder[0],
-          lastCountry: data.countryOrder[data.countryOrder.length - 1],
-        }))
-      );
+      setPlayedGrids((prevGrids) => {
+        const newGrids = dailyDataArray
+          .map((data, index) => {
+            // Only create new grids when they aren't already in playedGrids
+            const gridExists = prevGrids.some((grid) => grid.gridId === index);
+
+            if (!gridExists) {
+              return {
+                ...initialState,
+                gridId: index,
+                gridCountries: data.gridCountries,
+                countryOrder: data.countryOrder,
+                firstCountry: data.countryOrder[0],
+                lastCountry: data.countryOrder[data.countryOrder.length - 1],
+              };
+            }
+
+            return null;
+          })
+          .filter((grid) => grid !== null);
+
+        return [...prevGrids, ...newGrids];
+      });
     } catch (error) {
       console.error("Error fetching data:", error);
     }
