@@ -4,13 +4,14 @@ import useLocalStorage from "./useLocalStorage";
 import countryData from "../countries.json";
 
 const useGameLogic = () => {
-  // General game
-  const [totalGrids, setTotalGrids] = useState(0);
-
   // Before the player does anything
   const initialState = {
-    gameProgress: "running",
     gridId: -1,
+    gridCountries: [],
+    countryOrder: [],
+    firstCountry: "",
+    lastCountry: "",
+    gameProgress: "running",
     currCountry: "",
     currCountryIndex: -1,
     firstCountryClicked: false,
@@ -21,15 +22,10 @@ const useGameLogic = () => {
     lives: 3,
   };
 
-  // Combined state for the game
+  // General game
+  const [totalGrids, setTotalGrids] = useState(0);
   const [gameState, setGameState] = useState(initialState);
   const [playedGrids, setPlayedGrids] = useLocalStorage("playedGrids", []);
-
-  // Additional state
-  const [gridCountries, setGridCountries] = useState([[]]);
-  const [countryOrder, setCountryOrder] = useState([]);
-  const [firstCountry, setFirstCountry] = useState("");
-  const [lastCountry, setLastCountry] = useState("");
 
   // Imports all flag images (vite)
   const flagImages = import.meta.glob("../assets/flags/*.png", {
@@ -66,9 +62,9 @@ const useGameLogic = () => {
   useEffect(() => {
     setGameState((prevState) => ({
       ...prevState,
-      currCountry: countryOrder[gameState.currCountryIndex] || "",
+      currCountry: gameState.countryOrder[gameState.currCountryIndex] || "",
     }));
-  }, [gameState.currCountryIndex, countryOrder]);
+  }, [gameState.currCountryIndex]);
 
   // Monitors for when the player hits 0 lives
   useEffect(() => {
@@ -118,14 +114,14 @@ const useGameLogic = () => {
 
       setTotalGrids(dailyDataArray.length);
 
-      setPlayedGrids((prevPlayedGrids) => {
-        return dailyDataArray.map((data, index) => ({
-          ...gameState,
+      setPlayedGrids(
+        dailyDataArray.map((data, index) => ({
+          ...initialState,
           gridId: index,
           gridCountries: data.gridCountries,
           countryOrder: data.countryOrder,
-        }));
-      });
+        }))
+      );
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -147,11 +143,11 @@ const useGameLogic = () => {
       setGameState((prevState) => ({
         ...prevState,
         gridId: targetGridId,
+        gridCountries: dailyData.gridCountries,
+        countryOrder: dailyData.countryOrder,
+        firstCountry: dailyData.countryOrder[0],
+        lastCountry: dailyData.countryOrder[dailyData.countryOrder.length - 1],
       }));
-      setGridCountries(dailyData.gridCountries);
-      setCountryOrder(dailyData.countryOrder);
-      setFirstCountry(dailyData.countryOrder[0]);
-      setLastCountry(dailyData.countryOrder[dailyData.countryOrder.length - 1]);
     }
   };
 
@@ -172,7 +168,7 @@ const useGameLogic = () => {
 
   // Handles game progression by clicking on flags
   const flagClick = (row, col) => {
-    const id = gridCountries[row][col];
+    const id = gameState.gridCountries[row][col];
 
     if (
       gameState.correctClickedFlags.includes(id) ||
@@ -183,7 +179,7 @@ const useGameLogic = () => {
       return;
     }
 
-    if (!gameState.firstCountryClicked && id === firstCountry) {
+    if (!gameState.firstCountryClicked && id === gameState.firstCountry) {
       setGameState((prevState) => ({
         ...prevState,
         firstCountryClicked: true,
@@ -192,7 +188,7 @@ const useGameLogic = () => {
       displayFlagAsCorrect(id);
     } else if (
       gameState.firstCountryClicked &&
-      id === countryOrder[gameState.currCountryIndex + 1]
+      id === gameState.countryOrder[gameState.currCountryIndex + 1]
     ) {
       setGameState((prevState) => ({
         ...prevState,
@@ -200,7 +196,7 @@ const useGameLogic = () => {
       }));
       displayFlagAsCorrect(id);
 
-      if (id === lastCountry) {
+      if (id === gameState.lastCountry) {
         setGameState((prevState) => ({
           ...prevState,
           gameProgress: "won",
@@ -246,9 +242,12 @@ const useGameLogic = () => {
 
   // Finds the position of a country in the grid
   const findPosition = (countryId) => {
-    for (let row = 0; row < gridCountries.length; row++) {
-      for (let col = 0; col < gridCountries[row].length; col++) {
-        if (gridCountries[row][col] === countryOrder[countryId]) {
+    for (let row = 0; row < gameState.gridCountries.length; row++) {
+      for (let col = 0; col < gameState.gridCountries[row].length; col++) {
+        if (
+          gameState.gridCountries[row][col] ===
+          gameState.countryOrder[countryId]
+        ) {
           return [row, col];
         }
       }
@@ -283,10 +282,6 @@ const useGameLogic = () => {
   return {
     ...gameState,
     totalGrids,
-    gridCountries,
-    countryOrder,
-    firstCountry,
-    lastCountry,
     flagImageMap,
     getCountryName,
     handleGridPick,
