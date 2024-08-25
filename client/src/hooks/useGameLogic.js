@@ -45,10 +45,17 @@ const useGameLogic = () => {
     }, {});
   }, []);
 
-  // // TODO: remove, testing
-  // useEffect(() => {
-  //   console.log("playedGrids:", playedGrids);
-  // }, [playedGrids]);
+  // Get all the grids
+  useEffect(() => {
+    fetchDailyData();
+  }, []);
+
+  // Loads initial grid when all the grid data is fetched
+  useEffect(() => {
+    if (gameState.gridId === -1) {
+      loadNewGrid(gameState.gridId);
+    }
+  }, [playedGrids]);
 
   // Loads all data on reload
   useEffect(() => {
@@ -102,89 +109,55 @@ const useGameLogic = () => {
   //   });
   // };
 
-  // Load all countries' data from countries.json and fetch grids from backend
+  // Fetches all grids from the database
+  const fetchDailyData = async () => {
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL;
+      const response = await Axios.get(apiUrl);
+      const dailyDataArray = response.data;
+
+      setTotalGrids(dailyDataArray.length);
+
+      setPlayedGrids((prevPlayedGrids) => {
+        return dailyDataArray.map((data, index) => ({
+          ...gameState,
+          gridId: index,
+          gridCountries: data.gridCountries,
+          countryOrder: data.countryOrder,
+        }));
+      });
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  // Loads the specific grid
   const loadNewGrid = (newGridId) => {
-    const fetchDailyData = async () => {
-      try {
-        const apiUrl = import.meta.env.VITE_API_URL;
-        const response = await Axios.get(apiUrl);
-        let targetGridId = newGridId;
+    let targetGridId = newGridId;
 
-        if (targetGridId === -1) {
-          targetGridId = response.data.length - 1;
-        }
+    if (targetGridId === -1) {
+      targetGridId = playedGrids.length - 1;
+    }
 
-        const dailyData = response.data[targetGridId];
+    const dailyData = playedGrids[targetGridId];
 
-        if (dailyData) {
-          resetGame();
+    if (dailyData) {
+      resetGame();
 
-          setGameState((prevState) => ({
-            ...prevState,
-            gridId: targetGridId,
-          }));
-          setGridCountries(dailyData.gridCountries);
-          setCountryOrder(dailyData.countryOrder);
-          setFirstCountry(dailyData.countryOrder[0]);
-          setLastCountry(
-            dailyData.countryOrder[dailyData.countryOrder.length - 1]
-          );
-          setTotalGrids(response.data.length);
-
-          // Add the entire updated gameState to playedGrids
-          setPlayedGrids((prevPlayedGrids) => {
-            const isGridAlreadyPlayed = prevPlayedGrids.some(
-              (grid) => grid.gridId === targetGridId
-            );
-
-            if (!isGridAlreadyPlayed) {
-              const newGridState = {
-                ...gameState,
-                gridId: targetGridId,
-              };
-              return [...prevPlayedGrids, newGridState];
-            }
-
-            return prevPlayedGrids;
-          });
-
-          // // Add the entire updated gameState to playedGrids
-          // setPlayedGrids((prevPlayedGrids) => {
-          //   // console.log("Previous played grids:", prevPlayedGrids);
-          //   // console.log("Current grid being played:", updatedGameState.gridId);
-
-          //   const isGridAlreadyPlayed = prevPlayedGrids.some(
-          //     (grid) => grid.gridId === updatedGameState.gridId
-          //   );
-
-          //   if (!isGridAlreadyPlayed) {
-          //     // console.log(
-          //     //   "loadNewGrid: grid has not been played",
-          //     //   updatedGameState.gridId
-          //     // );
-          //     const updatedPlayedGrids = [...prevPlayedGrids, updatedGameState];
-          //     // console.log("Updated played grids:", updatedPlayedGrids);
-          //     return updatedPlayedGrids;
-          //   }
-
-          //   // console.log(
-          //   //   "loadNewGrid: grid has been played",
-          //   //   updatedGameState.gridId
-          //   // );
-          //   return prevPlayedGrids;
-          // });
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchDailyData();
+      setGameState((prevState) => ({
+        ...prevState,
+        gridId: targetGridId,
+      }));
+      setGridCountries(dailyData.gridCountries);
+      setCountryOrder(dailyData.countryOrder);
+      setFirstCountry(dailyData.countryOrder[0]);
+      setLastCountry(dailyData.countryOrder[dailyData.countryOrder.length - 1]);
+    }
   };
 
   // Non-specific reset of a grid
   const resetGame = () => {
-    // setGameState(initialState);
+    setGameState(initialState);
   };
 
   // Gets the name of the country from the id
