@@ -34,7 +34,7 @@ const GameEndModal = ({
         </button>
         {/* Modal Content */}
         <h2 className="text-4xl font-bold mb-4 text-center">
-          🎌FlagPath #{gridId}
+          🎌FlagPath #{gridId + 1}
         </h2>
         <p className="text-4xl text-center">
           {checkMarks}
