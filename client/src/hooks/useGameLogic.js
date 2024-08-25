@@ -114,6 +114,8 @@ const useGameLogic = () => {
           gridId: index,
           gridCountries: data.gridCountries,
           countryOrder: data.countryOrder,
+          firstCountry: data.countryOrder[0],
+          lastCountry: data.countryOrder[data.countryOrder.length - 1],
         }))
       );
     } catch (error) {
@@ -132,22 +134,8 @@ const useGameLogic = () => {
     const dailyData = playedGrids[targetGridId];
 
     if (dailyData) {
-      resetGame();
-
-      setGameState((prevState) => ({
-        ...prevState,
-        gridId: targetGridId,
-        gridCountries: dailyData.gridCountries,
-        countryOrder: dailyData.countryOrder,
-        firstCountry: dailyData.countryOrder[0],
-        lastCountry: dailyData.countryOrder[dailyData.countryOrder.length - 1],
-      }));
+      setGameState(dailyData);
     }
-  };
-
-  // Non-specific reset of a grid
-  const resetGame = () => {
-    setGameState(initialState);
   };
 
   // Gets the name of the country from the id
