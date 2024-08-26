@@ -37,7 +37,8 @@ const FlagGrid = ({
                         alt=""
                         className={`w-full h-full object-cover ${
                           (currCountry && !isAdjacent && id !== currCountry) || // Dims all countries that are not adjacent
-                          (isAdjacent && gameProgress != "running") // Dims adjacent countries if the game is over
+                          (isAdjacent && gameProgress !== "running") || // Dims adjacent countries if the game is over
+                          gameProgress === "lost"
                             ? "opacity-40"
                             : ""
                         }`}
