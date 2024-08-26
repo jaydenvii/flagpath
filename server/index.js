@@ -7,8 +7,15 @@ const cors = require("cors");
 
 const app = express();
 
+const frontendURL = process.env.FRONTEND_URL;
+
+app.use(
+  cors({
+    origin: frontendURL,
+  })
+);
+
 app.use(express.json());
-app.use(cors());
 
 const dbURL = process.env.MONGODB_URL;
 
