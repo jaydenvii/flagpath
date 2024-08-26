@@ -276,6 +276,7 @@ const useGameLogic = () => {
 
   return {
     ...gameState,
+    playedGrids,
     totalGrids,
     flagImageMap,
     getCountryName,

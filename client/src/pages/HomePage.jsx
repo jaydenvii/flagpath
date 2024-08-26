@@ -18,6 +18,7 @@ const HomePage = () => {
     preFirstGuessMistakes,
     postFirstGuessMistakes,
     lives,
+    playedGrids,
     totalGrids,
     gridCountries,
     countryOrder,
@@ -151,6 +152,7 @@ const HomePage = () => {
               isOpen={showGridPickModal}
               onClose={() => setShowGridPickModal(false)}
               totalGrids={totalGrids}
+              playedGrids={playedGrids}
               onGridPick={handleGridPick}
             />
           )}
