@@ -26,8 +26,10 @@ const FlagGrid = ({
                   // Border around the flag
                   <div
                     key={id}
-                    className={`relative border hover:border-[3px] border-gray-200 hover:border-yellow-300 cursor-pointer ${
-                      id === currCountry ? "border-[4px] border-amber-400" : ""
+                    className={`relative border hover:border-[2px] sm:hover:border-[3px] border-gray-200 hover:border-yellow-300 cursor-pointer ${
+                      id === currCountry
+                        ? "border-[2px] sm:border-[4px] border-amber-400"
+                        : ""
                     }`}
                     onClick={() => flagClick(rowIndex, colIndex)}
                   >
