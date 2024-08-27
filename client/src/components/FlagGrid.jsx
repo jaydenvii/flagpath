@@ -14,7 +14,8 @@ const FlagGrid = ({
   return (
     <div>
       <div className="flex justify-center">
-        <div className="w-[900px] h-[600px]">
+        {/* <div className="w-[900px] h-[600px]"> */}
+        <div className="md:w-[750px] md:h-[500px] lg:w-[900px] lg:h-[600px]">
           <div className="grid grid-cols-6 grid-rows-6 w-full h-full">
             {gridCountries.map((rowArray, rowIndex) =>
               rowArray.map((id, colIndex) => {
