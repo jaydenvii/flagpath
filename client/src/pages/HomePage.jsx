@@ -63,7 +63,7 @@ const HomePage = () => {
   return (
     <div>
       {/* Header */}
-      <h1 className="pt-4 mb-8 text-6xl text-center">
+      <h1 className="pt-4 mb-8 text-5xl sm:text-6xl text-center">
         🎌FlagPath
         {!loading && (
           <span
@@ -101,7 +101,7 @@ const HomePage = () => {
       ) : (
         <>
           {/* Instruction text */}
-          <p className="mt-10 mb-4 text-4xl text-center">
+          <p className="mt-10 mb-4 text-3xl sm:text-4xl text-center">
             Go from{" "}
             <span className="text-blue-300 font-bold">
               {getCountryName(firstCountry)}

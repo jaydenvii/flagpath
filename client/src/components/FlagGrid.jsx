@@ -59,7 +59,9 @@ const FlagGrid = ({
           </div>
         </div>
       </div>
-      <p className="mt-4 text-4xl text-center">Lives left: {lives}</p>
+      <p className="mt-4 text-3xl sm:text-4xl text-center">
+        Lives left: {lives}
+      </p>
     </div>
   );
 };
