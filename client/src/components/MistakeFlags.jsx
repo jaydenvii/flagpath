@@ -14,7 +14,7 @@ const MistakeFlags = ({
         {preFirstGuessMistakes.map((countryId, index) => (
           <div
             key={`${countryId}-pre-${index}`} // Unique key combining countryId and index
-            className="flex flex-col justify-between p-2 w-[150px] rounded text-center bg-gray-700"
+            className="flex flex-col justify-between p-2 w-[125px] sm:w-[150px] rounded text-center bg-gray-700"
           >
             <p className="flex-grow">
               {index + 1}. {getCountryName(countryId)}*
@@ -30,7 +30,7 @@ const MistakeFlags = ({
         {postFirstGuessMistakes.map((countryId, index) => (
           <div
             key={`${countryId}-post-${index}`} // Unique key combining countryId and index
-            className="flex flex-col justify-between p-2 w-[150px] rounded text-center bg-gray-700"
+            className="flex flex-col justify-between p-2 w-[125px] sm:w-[150px] rounded text-center bg-gray-700"
           >
             <p className="flex-grow">
               {index + 1 + preFirstGuessMistakes.length}.{" "}

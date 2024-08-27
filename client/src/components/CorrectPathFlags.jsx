@@ -12,7 +12,7 @@ const CorrectPathFlags = ({ countries, flagImageMap, getCountryName }) => {
           return (
             <div
               key={`${countryId}-${index}`} // Unique key combining countryId and index
-              className={`flex flex-col justify-between p-2 w-[150px] rounded text-center ${
+              className={`flex flex-col justify-between p-2 w-[125px] sm:w-[150px] rounded text-center ${
                 isFirstCountry
                   ? "bg-blue-500"
                   : isLastCountry
