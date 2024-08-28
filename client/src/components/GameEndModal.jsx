@@ -12,15 +12,24 @@ const GameEndModal = ({
   countryOrder,
   preFirstGuessMistakes,
   postFirstGuessMistakes,
+  guessOrder,
   getCountryName,
   flagImageMap,
 }) => {
   if (!isOpen) return null;
 
-  // Lives left
-  const maxLives = 3;
-  const checkMarks = "✅".repeat(lives);
-  const crosses = "❌".repeat(maxLives - lives);
+  // Game info
+  const guessOrderHTML = guessOrder
+    .map((guess) => (guess === "correct" ? "✅" : "❌"))
+    .reduce((acc, emoji, index) => {
+      return acc + emoji + ((index + 1) % 5 === 0 ? "<br />" : "");
+    }, "");
+
+  const guessOrderText = guessOrder
+    .map((guess) => (guess === "correct" ? "✅" : "❌"))
+    .reduce((acc, emoji, index) => {
+      return acc + emoji + ((index + 1) % 5 === 0 ? "\n" : "");
+    }, "");
 
   return (
     <div className="bg-gray-800 fixed inset-0 bg-opacity-70 flex items-center justify-center overflow-auto">
@@ -36,10 +45,10 @@ const GameEndModal = ({
         <h2 className="text-4xl font-bold mb-4 text-center">
           🎌FlagPath #{gridId + 1}
         </h2>
-        <p className="text-4xl text-center">
-          {checkMarks}
-          {crosses}
-        </p>
+        <p
+          className="text-4xl text-center"
+          dangerouslySetInnerHTML={{ __html: guessOrderHTML }}
+        />
         <p className="text-xl text-center">
           {gameProgress === "won"
             ? `You won with ${lives}/3 lives!`
@@ -49,8 +58,7 @@ const GameEndModal = ({
         <ShareButton
           gridId={gridId}
           lives={lives}
-          checkMarks={checkMarks}
-          crosses={crosses}
+          guessOrderText={guessOrderText}
         />
         {/* Correct Path */}
         <CorrectPathFlags

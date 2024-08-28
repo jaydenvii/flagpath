@@ -19,6 +19,7 @@ const useGameLogic = () => {
     incorrectClickedFlags: [],
     preFirstGuessMistakes: [],
     postFirstGuessMistakes: [],
+    guessOrder: [],
     lives: 3,
   };
 
@@ -181,6 +182,10 @@ const useGameLogic = () => {
         currCountryIndex: 0,
       }));
       displayFlagAsCorrect(id);
+      setGameState((prevState) => ({
+        ...prevState,
+        guessOrder: [...prevState.guessOrder, "correct"],
+      }));
     } else if (
       gameState.firstCountryClicked &&
       id === gameState.countryOrder[gameState.currCountryIndex + 1]
@@ -190,6 +195,10 @@ const useGameLogic = () => {
         currCountryIndex: prevState.currCountryIndex + 1,
       }));
       displayFlagAsCorrect(id);
+      setGameState((prevState) => ({
+        ...prevState,
+        guessOrder: [...prevState.guessOrder, "correct"],
+      }));
 
       if (id === gameState.lastCountry) {
         setGameState((prevState) => ({
@@ -203,6 +212,10 @@ const useGameLogic = () => {
         lives: prevState.lives - 1,
       }));
       displayFlagAsIncorrect(id);
+      setGameState((prevState) => ({
+        ...prevState,
+        guessOrder: [...prevState.guessOrder, "incorrect"],
+      }));
 
       if (gameState.firstCountryClicked) {
         setGameState((prevState) => ({

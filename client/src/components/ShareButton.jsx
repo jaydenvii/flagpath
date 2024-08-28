@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-const ShareButton = ({ gridId, lives, checkMarks, crosses }) => {
+const ShareButton = ({ gridId, guessOrderText }) => {
   const [buttonText, setButtonText] = useState("Share");
   const [buttonColor, setButtonColor] = useState("bg-gray-600");
 
   const copyToClipboard = () => {
-    const shareText = `🎌FlagPath #${gridId}\n${lives}/3\n${checkMarks}${crosses}\nhttps://flagpath.com/`;
+    const shareText = `🎌FlagPath #${gridId}\n${guessOrderText}\nhttps://flagpath.com/`;
 
     navigator.clipboard.writeText(shareText).then(
       () => {

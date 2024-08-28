@@ -17,6 +17,7 @@ const HomePage = () => {
     incorrectClickedFlags,
     preFirstGuessMistakes,
     postFirstGuessMistakes,
+    guessOrder,
     lives,
     playedGrids,
     totalGrids,
@@ -142,6 +143,7 @@ const HomePage = () => {
               countryOrder={countryOrder}
               preFirstGuessMistakes={preFirstGuessMistakes}
               postFirstGuessMistakes={postFirstGuessMistakes}
+              guessOrder={guessOrder}
               getCountryName={getCountryName}
               flagImageMap={flagImageMap}
             />
