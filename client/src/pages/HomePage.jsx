@@ -64,7 +64,7 @@ const HomePage = () => {
   return (
     <div>
       {/* Header */}
-      <h1 className="pt-4 mb-8 text-5xl sm:text-6xl text-center">
+      <h1 className="pt-16 sm:pt-4 mb-8 text-5xl sm:text-6xl text-center">
         🎌FlagPath
         {!loading && (
           <span
