@@ -25,7 +25,7 @@ mongoose
   .catch((err) => console.error("MongoDB connection error:", err));
 
 // Fetches all grids from the database
-app.get("/getGrids", async (req, res) => {
+app.get("/api/grids", async (req, res) => {
   try {
     // Only sends grids from today and before
     const today = new Date();

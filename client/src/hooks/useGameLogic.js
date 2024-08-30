@@ -104,7 +104,7 @@ const useGameLogic = () => {
   const fetchDailyData = async () => {
     try {
       const backendUrl = import.meta.env.VITE_BACKEND_URL;
-      const response = await Axios.get(`${backendUrl}/getGrids`);
+      const response = await Axios.get(`${backendUrl}/api/grids`);
       const dailyDataArray = response.data;
 
       setTotalGrids(dailyDataArray.length);
