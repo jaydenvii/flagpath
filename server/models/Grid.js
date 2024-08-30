@@ -14,6 +14,10 @@ const GridSchema = new mongoose.Schema({
     type: [String],
     required: true,
   },
+  date: {
+    type: Date,
+    required: true,
+  },
 });
 
 const GridModel = mongoose.model("dailygrids", GridSchema);

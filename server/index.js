@@ -27,7 +27,10 @@ mongoose
 // Fetches all grids from the database
 app.get("/getGrids", async (req, res) => {
   try {
-    const result = await GridModel.find({});
+    // Only sends grids from today and before
+    const today = new Date();
+
+    const result = await GridModel.find({ date: { $lte: today } });
     res.json(result);
   } catch (err) {
     res.json(err);
