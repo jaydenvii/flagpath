@@ -47,6 +47,7 @@ const GridPickModal = ({
               className="flex justify-center text-xl hover:text-cyan-300 hover:underline cursor-pointer"
               onClick={() => {
                 onGridPick(gridId);
+                onClose();
               }}
             >
               FlagPath #{totalGrids - index} -&nbsp;
