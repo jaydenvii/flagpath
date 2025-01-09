@@ -132,6 +132,12 @@ const useGameLogic = () => {
 
         return [...prevGrids, ...newGrids];
       });
+
+      // Update the current grid to the latest one in the database
+      setGameState((prevState) => ({
+        ...prevState,
+        gridId: dailyDataArray.length - 1,
+      }));
     } catch (error) {
       console.error("Error fetching data:", error);
     }
