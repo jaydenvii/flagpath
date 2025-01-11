@@ -82,6 +82,19 @@ const HomePage = () => {
       >
         ❓
       </button>
+      {/* Bug form button */}
+      <button
+        className="absolute top-4 right-16 px-1 py-1 bg-gray-600 hover:bg-slate-400 text-2xl rounded"
+        onClick={() =>
+          window.open(
+            "https://forms.gle/ZxB8P3t2X47V42do7",
+            "_blank",
+            "noopener noreferrer"
+          )
+        }
+      >
+        🪲
+      </button>
       {/* Show summary button */}
       {showSummaryButton && (
         <div className="flex justify-center">
