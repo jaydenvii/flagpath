@@ -194,7 +194,7 @@
     "id": "CAN",
     "name": "Canada",
     "flagUrl": "https://flagcdn.com/w320/ca.png",
-    "borders": ["USA"]
+    "borders": ["USA", "DNK"]
   },
   "CPV": {
     "id": "CPV",
@@ -295,7 +295,7 @@
     "id": "DNK",
     "name": "Denmark",
     "flagUrl": "https://flagcdn.com/w320/dk.png",
-    "borders": ["DEU"]
+    "borders": ["DEU", "CAN"]
   },
   "DJI": {
     "id": "DJI",
