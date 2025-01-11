@@ -5,7 +5,9 @@ const ShareButton = ({ gridId, guessOrderText }) => {
   const [buttonColor, setButtonColor] = useState("bg-gray-600");
 
   const copyToClipboard = () => {
-    const shareText = `🎌FlagPath #${gridId}\n${guessOrderText}\nhttps://flagpath.com/`;
+    const shareText = `🎌FlagPath #${
+      gridId + 1
+    }\n${guessOrderText}\nhttps://flagpath.xyz/`;
 
     navigator.clipboard.writeText(shareText).then(
       () => {
