@@ -855,6 +855,12 @@
     "flagUrl": "https://flagcdn.com/w320/pt.png",
     "borders": ["ESP"]
   },
+  "PSE": {
+    "id": "PSE",
+    "name": "Palestine",
+    "flagUrl": "https://flagcdn.com/w320/ps.png",
+    "borders": ["ISR", "EGY", "JOR"]
+  },
   "QAT": {
     "id": "QAT",
     "name": "Qatar",
