@@ -379,7 +379,7 @@
     "id": "FRA",
     "name": "France",
     "flagUrl": "https://flagcdn.com/w320/fr.png",
-    "borders": ["AND", "BEL", "DEU", "ITA", "LUX", "MCO", "ESP", "CHE"]
+    "borders": ["AND", "BEL", "DEU", "ITA", "LUX", "MCO", "ESP", "CHE", "NLD"]
   },
   "GAB": {
     "id": "GAB",
@@ -751,7 +751,7 @@
     "id": "NLD",
     "name": "Netherlands",
     "flagUrl": "https://flagcdn.com/w320/nl.png",
-    "borders": ["BEL", "DEU"]
+    "borders": ["BEL", "DEU", "FRA"]
   },
   "NZL": {
     "id": "NZL",
