@@ -106,17 +106,30 @@ const HomePage = () => {
       >
         📧
       </button>
-      {/* Show summary button */}
-      {showSummaryButton && (
+      {/* Vertical button container */}
+      <div className="flex flex-col h-full justify-between">
+        {/* Archive button */}
         <div className="flex justify-center">
           <button
-            className="-mt-4 -mb-6 px-3 bg-gray-500 hover:bg-slate-400 text-lg rounded"
-            onClick={() => setShowGameEndModal(true)}
+            className="px-3 py-1 text-l -mt-5 -mb-2 bg-yellow-300 text-gray-800 hover:bg-cyan-300 rounded"
+            onClick={() => setShowGridPickModal(true)}
           >
-            Show Summary
+            Play Previous Puzzles
           </button>
         </div>
-      )}
+        {/* Show summary button */}
+        {showSummaryButton && (
+          <div className="flex justify-center">
+            <button
+              className="px-3 py-1 text-l mt-4 -mb-6 bg-gray-500 hover:bg-slate-400 rounded"
+              onClick={() => setShowGameEndModal(true)}
+            >
+              Show Summary
+            </button>
+          </div>
+        )}
+      </div>
+
       {loading ? (
         // Spinner
         <div className="flex flex-col justify-center items-center h-[65vh]">
