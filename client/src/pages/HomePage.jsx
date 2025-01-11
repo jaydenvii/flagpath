@@ -87,13 +87,13 @@ const HomePage = () => {
         className="absolute top-4 right-16 px-1 py-1 bg-gray-600 hover:bg-slate-400 text-2xl rounded"
         onClick={() =>
           window.open(
-            "https://forms.gle/ZxB8P3t2X47V42do7",
+            "https://forms.gle/czhSXjeTgWByXPUW6",
             "_blank",
             "noopener noreferrer"
           )
         }
       >
-        🪲
+        📧
       </button>
       {/* Show summary button */}
       {showSummaryButton && (
