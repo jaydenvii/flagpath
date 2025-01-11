@@ -1,4 +1,5 @@
 import React from "react";
+import ClearCacheButton from "./ClearCacheButton";
 
 const GridPickModal = ({
   isOpen,
@@ -21,6 +22,9 @@ const GridPickModal = ({
         </button>
         {/* Modal Content */}
         <h2 className="text-3xl font-bold mb-4">Archived Grids</h2>
+        <div className="flex justify-center">
+          <ClearCacheButton />
+        </div>
         {/* List of previous grids */}
         {Array.from({ length: totalGrids }, (_, index) => {
           const gridId = totalGrids - 1 - index;
