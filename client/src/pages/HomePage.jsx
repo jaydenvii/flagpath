@@ -38,6 +38,7 @@ const HomePage = () => {
   const [showGameEndModal, setShowGameEndModal] = useState(false);
   const [showGridPickModal, setShowGridPickModal] = useState(false);
   const [showSummaryButton, setShowSummaryButton] = useState(false);
+  const [firstVisit, setFirstVisit] = useState(false);
 
   // Loading finishes when the gridId has updated
   useEffect(() => {
@@ -45,6 +46,16 @@ const HomePage = () => {
       setLoading(false);
     }
   }, [gridId]);
+
+  // Checks if the user has visited (to show tutorial modal)
+  useEffect(() => {
+    const visited = localStorage.getItem("visited");
+
+    if (!visited) {
+      setFirstVisit(true);
+      localStorage.setItem("visited", "true");
+    }
+  }, []);
 
   // Displays the game end modal and summary button
   useEffect(() => {
@@ -139,10 +150,13 @@ const HomePage = () => {
             isNeighbor={isNeighbor}
           />
           {/* Tutorial modal */}
-          {showTutorialModal && (
+          {(showTutorialModal || firstVisit) && (
             <TutorialModal
-              isOpen={showTutorialModal}
-              onClose={() => setShowTutorialModal(false)}
+              isOpen={showTutorialModal || firstVisit}
+              onClose={() => {
+                setShowTutorialModal(false);
+                setFirstVisit(false);
+              }}
             />
           )}
           {/* Game end modal */}
