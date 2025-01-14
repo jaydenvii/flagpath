@@ -1,5 +1,6 @@
 import React from "react";
 import ShareButton from "./ShareButton";
+import TryAgainButton from "./TryAgainButton";
 import CorrectPathFlags from "./CorrectPathFlags";
 import MistakeFlags from "./MistakeFlags";
 
@@ -15,6 +16,7 @@ const GameEndModal = ({
   guessOrder,
   getCountryName,
   flagImageMap,
+  onTryAgain,
 }) => {
   if (!isOpen) return null;
 
@@ -54,12 +56,16 @@ const GameEndModal = ({
             ? `You won with ${lives}/3 lives!`
             : "You lost all of your lives."}
         </p>
-        {/* Share button */}
-        <ShareButton
-          gridId={gridId}
-          lives={lives}
-          guessOrderText={guessOrderText}
-        />
+        <div className="flex justify-center space-x-4">
+          {/* Share button */}
+          <ShareButton
+            gridId={gridId}
+            lives={lives}
+            guessOrderText={guessOrderText}
+          />
+          {/* Try again button */}
+          <TryAgainButton gridId={gridId} onTryAgain={onTryAgain} />
+        </div>
         {/* Correct Path */}
         <CorrectPathFlags
           countries={countryOrder}

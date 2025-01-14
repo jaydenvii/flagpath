@@ -30,6 +30,7 @@ const HomePage = () => {
     handleGridPick,
     flagClick,
     isNeighbor,
+    setGameState,
   } = useGameLogic(-1);
 
   // UI
@@ -71,6 +72,31 @@ const HomePage = () => {
   useEffect(() => {
     setShowGameEndModal(false);
   }, [gridId]);
+
+  // Resets the progress of only the current grid
+  const handleTryAgain = (gridId) => {
+    const updatedGrids = playedGrids.map((grid) =>
+      grid.gridId === gridId
+        ? {
+            ...grid,
+            gameProgress: "running",
+            currCountry: "",
+            currCountryIndex: -1,
+            firstCountryClicked: false,
+            correctClickedFlags: [],
+            incorrectClickedFlags: [],
+            preFirstGuessMistakes: [],
+            postFirstGuessMistakes: [],
+            guessOrder: [],
+            lives: 3,
+          }
+        : grid
+    );
+
+    localStorage.setItem("playedGrids", JSON.stringify(updatedGrids));
+    setGameState(updatedGrids.find((grid) => grid.gridId === gridId));
+    setShowGameEndModal(false);
+  };
 
   return (
     <div>
@@ -186,6 +212,7 @@ const HomePage = () => {
               guessOrder={guessOrder}
               getCountryName={getCountryName}
               flagImageMap={flagImageMap}
+              onTryAgain={handleTryAgain}
             />
           )}
           {/* Grid pick modal */}

@@ -302,6 +302,7 @@ const useGameLogic = () => {
     handleGridPick,
     flagClick,
     isNeighbor,
+    setGameState,
   };
 };
 

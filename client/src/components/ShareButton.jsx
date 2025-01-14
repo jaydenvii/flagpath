@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 const ShareButton = ({ gridId, guessOrderText }) => {
   const [buttonText, setButtonText] = useState("Share");
-  const [buttonColor, setButtonColor] = useState("bg-gray-600");
 
   const copyToClipboard = () => {
     const shareText = `🎌FlagPath #${
@@ -12,10 +11,8 @@ const ShareButton = ({ gridId, guessOrderText }) => {
     navigator.clipboard.writeText(shareText).then(
       () => {
         setButtonText("Copied!");
-        setButtonColor("bg-blue-500");
         setTimeout(() => {
           setButtonText("Share");
-          setButtonColor("bg-gray-600");
         }, 2000); // Reset button text and color after 2 seconds
       },
       (err) => {
@@ -28,7 +25,7 @@ const ShareButton = ({ gridId, guessOrderText }) => {
     <div className="flex justify-center mt-4">
       <button
         onClick={copyToClipboard}
-        className={`px-4 py-2 ${buttonColor} text-white rounded`}
+        className={`px-4 py-2 bg-blue-500 text-white rounded`}
       >
         {buttonText}
       </button>
