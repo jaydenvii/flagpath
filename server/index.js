@@ -24,6 +24,35 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
+// Adds a new grid to the database
+app.post("/api/grids", async (req, res) => {
+  try {
+    const { gridCountries, countryOrder } = req.body;
+    const gridCount = await GridModel.countDocuments();
+
+    // Tomorrow's date
+    const today = new Date();
+    const tomorrow = today.setDate(today.getDate() + 1);
+    const year = tomorrow.getFullYear();
+    const month = String(tomorrow.getMonth() + 1).padStart(2, "0");
+    const day = String(tomorrow.getDate()).padStart(2, "0");
+    const formattedDate = `${year}-${month}-${day}T05:00:00.000+00:00`;
+
+    const newGrid = {
+      id: gridCount + 1,
+      gridCountries: gridCountries,
+      countryOrder: countryOrder,
+      date: formattedDate,
+    };
+
+    await newGrid.save();
+
+    res.json(newGrid);
+  } catch (err) {
+    res.json(err);
+  }
+});
+
 // Fetches all grids from the database
 app.get("/api/grids", async (req, res) => {
   try {
