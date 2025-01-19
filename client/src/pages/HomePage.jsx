@@ -101,7 +101,7 @@ const HomePage = () => {
   return (
     <div>
       {/* Header */}
-      <h1 className="pt-16 sm:pt-4 mb-8 text-5xl sm:text-6xl text-center">
+      <h1 className="sm:pt-4 pt-16 mb-8 sm:text-6xl xs:text-5xl text-[2.75rem] text-center">
         🎌FlagPath
         {!loading && (
           <span
@@ -137,7 +137,7 @@ const HomePage = () => {
         {/* Archive button */}
         <div className="flex justify-center">
           <button
-            className="px-3 py-1 text-l -mt-5 -mb-2 bg-yellow-300 text-gray-800 hover:bg-cyan-300 rounded"
+            className="px-3 py-1 sm:text-base text-sm -mt-5 -mb-2 bg-yellow-300 text-gray-800 hover:bg-cyan-300 rounded"
             onClick={() => setShowGridPickModal(true)}
           >
             Play Previous Puzzles
@@ -147,7 +147,7 @@ const HomePage = () => {
         {showSummaryButton && (
           <div className="flex justify-center">
             <button
-              className="px-3 py-1 text-l mt-4 -mb-6 bg-gray-500 hover:bg-slate-400 rounded"
+              className="px-3 py-1 sm:text-base text-sm mt-4 -mb-6 bg-gray-500 hover:bg-slate-400 rounded"
               onClick={() => setShowGameEndModal(true)}
             >
               Show Summary
@@ -165,7 +165,7 @@ const HomePage = () => {
       ) : (
         <>
           {/* Instruction text */}
-          <p className="mt-10 mb-4 text-3xl sm:text-4xl text-center">
+          <p className="mt-10 mb-4 sm:text-4xl xs:text-3xl text-2xl text-center">
             Go from{" "}
             <span className="text-blue-300 font-bold">
               {getCountryName(firstCountry)}
