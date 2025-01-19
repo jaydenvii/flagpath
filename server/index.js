@@ -84,6 +84,19 @@ app.put("/api/grids/:id", async (req, res) => {
   }
 });
 
+// Deletes a grid
+app.delete("/api/grids/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const deletedGrid = await GridModel.findOneAndDelete({ id: id });
+
+    res.json({ message: "Grid deleted" });
+  } catch (err) {
+    res.json(err);
+  }
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is now running on port ${PORT}!`);
