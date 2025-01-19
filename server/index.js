@@ -66,6 +66,24 @@ app.get("/api/grids", async (req, res) => {
   }
 });
 
+// Updates a grid
+app.put("/api/grids/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { gridCountries, countryOrder } = req.body;
+
+    const updatedGrid = await GridModel.findOneAndUpdate(
+      { id: id },
+      { gridCountries, countryOrder },
+      { new: true }
+    );
+
+    res.json(updatedGrid);
+  } catch (err) {
+    res.json(err);
+  }
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is now running on port ${PORT}!`);
