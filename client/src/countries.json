@@ -145,7 +145,7 @@
       "ARG",
       "BOL",
       "COL",
-      "GUF",
+      "FRA",
       "GUY",
       "PRY",
       "PER",
@@ -379,7 +379,20 @@
     "id": "FRA",
     "name": "France",
     "flagUrl": "https://flagcdn.com/w320/fr.png",
-    "borders": ["AND", "BEL", "DEU", "ITA", "LUX", "MCO", "ESP", "CHE", "NLD"]
+    "borders": [
+      "AND",
+      "BEL",
+      "DEU",
+      "ITA",
+      "LUX",
+      "MCO",
+      "ESP",
+      "CHE",
+      "NLD",
+      "BRA",
+      "SUR",
+      "GBR"
+    ]
   },
   "GAB": {
     "id": "GAB",
@@ -1018,7 +1031,7 @@
     "id": "ESP",
     "name": "Spain",
     "flagUrl": "https://flagcdn.com/w320/es.png",
-    "borders": ["AND", "FRA", "GIB", "PRT", "MAR"]
+    "borders": ["AND", "FRA", "GBR", "PRT", "MAR"]
   },
   "LKA": {
     "id": "LKA",
@@ -1036,7 +1049,7 @@
     "id": "SUR",
     "name": "Suriname",
     "flagUrl": "https://flagcdn.com/w320/sr.png",
-    "borders": ["BRA", "GUF", "GUY"]
+    "borders": ["BRA", "FRA", "GUY"]
   },
   "SWE": {
     "id": "SWE",
@@ -1156,7 +1169,7 @@
     "id": "GBR",
     "name": "United Kingdom",
     "flagUrl": "https://flagcdn.com/w320/gb.png",
-    "borders": ["IRL"]
+    "borders": ["IRL", "ESP", "FRA"]
   },
   "USA": {
     "id": "USA",
@@ -1205,6 +1218,11 @@
     "name": "Yemen",
     "flagUrl": "https://flagcdn.com/w320/ye.png",
     "borders": ["OMN", "SAU"]
+  },
+  "XXK": {
+    "id": "XXK",
+    "name": "Kosovo",
+    "borders": ["SRB", "MKD", "ALB", "MNE"]
   },
   "ZMB": {
     "id": "ZMB",
