@@ -30,6 +30,12 @@ app.post("/api/grids", async (req, res) => {
     const { gridCountries, countryOrder } = req.body;
     const gridCount = await GridModel.countDocuments();
 
+    if (!gridCountries || !countryOrder) {
+      return res
+        .status(404)
+        .json({ error: "gridCountries or countryOrder not found" });
+    }
+
     // Tomorrow's date
     const today = new Date();
     const tomorrow = today.setDate(today.getDate() + 1);
@@ -78,6 +84,10 @@ app.put("/api/grids/:id", async (req, res) => {
       { new: true }
     );
 
+    if (!updatedGrid) {
+      return res.status(404).json({ error: "Updated grid not found" });
+    }
+
     res.json(updatedGrid);
   } catch (err) {
     res.json(err);
@@ -90,6 +100,10 @@ app.delete("/api/grids/:id", async (req, res) => {
     const { id } = req.params;
 
     const deletedGrid = await GridModel.findOneAndDelete({ id: id });
+
+    if (!deletedGrid) {
+      return res.status(404).json({ error: "Deleted grid not found" });
+    }
 
     res.json({ message: "Grid deleted" });
   } catch (err) {
