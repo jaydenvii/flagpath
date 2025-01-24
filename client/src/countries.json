@@ -277,7 +277,7 @@
     "id": "CYP",
     "name": "Cyprus",
     "flagUrl": "https://flagcdn.com/w320/cy.png",
-    "borders": []
+    "borders": ["GBR"]
   },
   "CZE": {
     "id": "CZE",
@@ -1169,7 +1169,7 @@
     "id": "GBR",
     "name": "United Kingdom",
     "flagUrl": "https://flagcdn.com/w320/gb.png",
-    "borders": ["IRL", "ESP", "FRA"]
+    "borders": ["IRL", "ESP", "FRA", "CYP"]
   },
   "USA": {
     "id": "USA",
