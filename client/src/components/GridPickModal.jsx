@@ -37,8 +37,10 @@ const GridPickModal = ({
 
           // Color of the percent span
           let spanColor = "text-slate-300";
+          let crossedOut = false;
           if (lives === 0) {
             spanColor = "text-red-500";
+            crossedOut = true;
           } else if (percentComplete === 100) {
             spanColor = "text-green-500";
           } else if (percentComplete !== 0 || lives !== 3) {
@@ -55,7 +57,11 @@ const GridPickModal = ({
               }}
             >
               FlagPath #{totalGrids - index} -&nbsp;
-              <span className={spanColor}>[{percentComplete.toFixed(0)}%]</span>
+              <span
+                className={`${spanColor} ${crossedOut ? "line-through" : ""}`}
+              >
+                [{percentComplete.toFixed(0)}%]
+              </span>
             </div>
           );
         })}
