@@ -56,7 +56,7 @@ const GridPickModal = ({
                 onClose();
               }}
             >
-              FlagPath #{totalGrids - index} -&nbsp;
+              FlagPath #{totalGrids - index} &nbsp;
               <span
                 className={`${spanColor} ${crossedOut ? "line-through" : ""}`}
               >
