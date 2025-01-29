@@ -11,8 +11,8 @@ const GridPickModal = ({
   if (!isOpen) return null;
 
   return (
-    <div className="bg-gray-800 fixed inset-0 bg-opacity-70 flex items-center justify-center">
-      <div className="w-[300px] bg-gray-900 p-8 rounded-lg shadow-lg relative border-2 border-gray-200">
+    <div className="bg-gray-800 fixed inset-0 bg-opacity-70 flex items-center justify-center overflow-auto">
+      <div className="w-[300px] bg-gray-900 p-8 rounded-lg shadow-lg relative border-2 border-gray-200 max-h-full overflow-y-auto">
         {/* Close button */}
         <button
           onClick={onClose}
