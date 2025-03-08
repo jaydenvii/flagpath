@@ -9,13 +9,13 @@
     "id": "ALB",
     "name": "Albania",
     "flagUrl": "https://flagcdn.com/w320/al.png",
-    "borders": ["MNE", "GRC", "MKD", "UNK"]
+    "borders": ["MNE", "GRC", "MKD", "XXK"]
   },
   "DZA": {
     "id": "DZA",
     "name": "Algeria",
     "flagUrl": "https://flagcdn.com/w320/dz.png",
-    "borders": ["TUN", "LBY", "NER", "ESH", "MRT", "MLI", "MAR"]
+    "borders": ["TUN", "LBY", "NER", "MRT", "MLI", "MAR"]
   },
   "AND": {
     "id": "AND",
@@ -228,14 +228,12 @@
       "AFG",
       "BTN",
       "MMR",
-      "HKG",
       "IND",
       "KAZ",
       "NPL",
       "PRK",
       "KGZ",
       "LAO",
-      "MAC",
       "MNG",
       "PAK",
       "RUS",
@@ -680,7 +678,7 @@
     "id": "MRT",
     "name": "Mauritania",
     "flagUrl": "https://flagcdn.com/w320/mr.png",
-    "borders": ["DZA", "MLI", "SEN", "ESH"]
+    "borders": ["DZA", "MLI", "SEN"]
   },
   "MUS": {
     "id": "MUS",
@@ -722,13 +720,13 @@
     "id": "MNE",
     "name": "Montenegro",
     "flagUrl": "https://flagcdn.com/w320/me.png",
-    "borders": ["ALB", "BIH", "HRV", "UNK", "SRB"]
+    "borders": ["ALB", "BIH", "HRV", "SRB", "XXK"]
   },
   "MAR": {
     "id": "MAR",
     "name": "Morocco",
     "flagUrl": "https://flagcdn.com/w320/ma.png",
-    "borders": ["DZA", "ESH", "ESP"]
+    "borders": ["DZA", "ESP"]
   },
   "MOZ": {
     "id": "MOZ",
@@ -800,7 +798,7 @@
     "id": "MKD",
     "name": "North Macedonia",
     "flagUrl": "https://flagcdn.com/w320/mk.png",
-    "borders": ["ALB", "BGR", "GRC", "UNK", "SRB"]
+    "borders": ["ALB", "BGR", "GRC", "SRB", "XXK"]
   },
   "NOR": {
     "id": "NOR",
@@ -965,7 +963,7 @@
     "id": "SRB",
     "name": "Serbia",
     "flagUrl": "https://flagcdn.com/w320/rs.png",
-    "borders": ["BIH", "BGR", "HRV", "HUN", "UNK", "MKD", "MNE", "ROU"]
+    "borders": ["BIH", "BGR", "HRV", "HUN", "MKD", "MNE", "ROU", "XXK"]
   },
   "SYC": {
     "id": "SYC",
