@@ -1031,12 +1031,6 @@
     "flagUrl": "https://flagcdn.com/w320/es.png",
     "borders": ["AND", "FRA", "GBR", "PRT", "MAR"]
   },
-  "LKA": {
-    "id": "LKA",
-    "name": "Sri Lanka",
-    "flagUrl": "https://flagcdn.com/w320/lk.png",
-    "borders": ["IND"]
-  },
   "SDN": {
     "id": "SDN",
     "name": "Sudan",
